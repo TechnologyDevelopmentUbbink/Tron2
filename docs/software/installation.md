@@ -1,35 +1,39 @@
-# Software Installation
+# Software installation
 
-This page will provide verified prerequisites and installation procedures for supported software.
+The official low-level SDK repository supplies platform-specific Python wheels and C++ libraries. Install into an isolated development environment and pin the repository commit used by the project.
 
-!!! info "Documentation status"
+## Supported platforms in the SDK guide
 
-    This page is under development. Technical information has not yet been imported or verified.
+- Linux x86-64
+- Linux AArch64
+- Windows for the Python package
 
-## Prerequisites
+## Obtain the SDK
 
-Content is planned and will be added after suitable source material is reviewed.
+```bash
+git clone https://github.com/limxdynamics/limxsdk-lowlevel.git
+cd limxsdk-lowlevel
+git rev-parse HEAD
+```
 
-## Supported Environment
+Install the wheel from the directory matching the computer architecture and Python environment. Use the current repository README for the exact path and requirements.
 
-Content is planned and will be added after suitable source material is reviewed.
+!!! warning "Do not connect to hardware during package validation"
 
-## Installation
+    First verify imports, architecture, message types, and simulation/example behavior without a live motion-command path.
 
-Content is planned and will be added after suitable source material is reviewed.
+## Verification record
 
-## Configuration
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Verification
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Troubleshooting
-
-Content is planned and will be added after suitable source material is reviewed.
+| Item | Value |
+| --- | --- |
+| Repository commit | Not pinned |
+| OS/architecture | Not recorded |
+| Python/C++ toolchain | Not recorded |
+| Robot model | Not recorded |
+| Simulation test | Not performed |
+| Hardware test approval | Not granted |
 
 ## Sources
 
-Content is planned and will be added after suitable source material is reviewed.
+- [limxsdk-lowlevel](https://github.com/limxdynamics/limxsdk-lowlevel)
+- LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, sections 2.1.2 and 2.2.2.

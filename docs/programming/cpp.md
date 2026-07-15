@@ -1,35 +1,34 @@
-# C++
+# C++ low-level API
 
-This page will document verified C++ toolchain, build, and integration guidance.
+The official C++ API uses a `Tron2` singleton. The guide documents this core surface:
 
-!!! info "Documentation status"
+| API | Role |
+| --- | --- |
+| `Tron2::getInstance()` | Obtain the single robot API instance |
+| `init(...)` | Initialize communication for the selected environment/interface |
+| `getMotorNumber()` | Return the configured motor count |
+| `subscribeImuData(...)` | Register an IMU callback |
+| `subscribeRobotState(...)` | Register a robot-state callback |
+| `publishRobotCmd(...)` | Publish motor command data |
+| `subscribeSensorJoy(...)` | Register handheld-controller data callback |
+| `subscribeDiagnosticValue(...)` | Register diagnostics callback |
+| `setRobotLightEffect(...)` | Request a documented light effect |
 
-    This page is under development. Technical information has not yet been imported or verified.
+!!! danger "Command publication"
 
-## Prerequisites
+    `publishRobotCmd` can produce physical motion. Validate the model, command vector length/order, limits, update rate, watchdog behavior, and stop path in simulation before hardware use.
 
-Content is planned and will be added after suitable source material is reviewed.
+## Minimal lifecycle (non-operational)
 
-## Toolchain
+```cpp
+// Structure only: fill parameters from the installed SDK documentation.
+auto* robot = limxsdk::Tron2::getInstance();
+// robot->init(...);
+// register state/diagnostic callbacks
+// verify target and state
+// publish commands only under an approved test procedure
+```
 
-Content is planned and will be added after suitable source material is reviewed.
+## Source
 
-## Dependencies
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Build Configuration
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Running Code
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Testing
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Sources
-
-Content is planned and will be added after suitable source material is reviewed.
+LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, section 2.1. Consult the matching SDK headers for authoritative signatures.

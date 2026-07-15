@@ -1,23 +1,24 @@
-# Getting Started
+# Getting started
 
-This section will guide readers from documentation orientation through safe preparation, first start, and shutdown.
+Use this route before operating or developing on the TRON 2.
 
-!!! info "Documentation status"
+1. Read [Safety](safety.md) and the current official manual.
+2. Identify the robot [configuration and model](../hardware/robot-overview.md).
+3. Check [battery and charger](../hardware/battery-and-charger.md), connectors, modules, and operating area.
+4. Learn the [controller and emergency-stop controls](../hardware/controller.md).
+5. Follow [Startup](../operation/startup.md) and verify the robot state before movement.
+6. For development, record versions and continue to the [SDK overview](../software/index.md).
 
-    This page is under development. Technical information has not yet been imported or verified.
+!!! warning "Source summary"
 
-## Before You Begin
+    The wiki is a navigation and engineering aid. Safety-critical timing, posture illustrations, and configuration-specific prerequisites must be checked in the current official manual until Ubbink verification is complete.
 
-Content is planned and will be added after suitable source material is reviewed.
+## Current verification status
 
-## Documentation Roadmap
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Next Steps
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Related Pages
-
-Content is planned and will be added after suitable source material is reviewed.
+| Area | Status |
+| --- | --- |
+| Official User Manual imported as summaries | Draft complete |
+| SDK architecture/API map | Draft complete |
+| Robot-description variants | Draft complete |
+| Ubbink hardware/configuration inventory | Not started |
+| Ubbink operational verification | Not started |

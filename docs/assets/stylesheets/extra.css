@@ -1,74 +1,38 @@
-/* Small project-specific refinements; Material remains responsible for layout and theming. */
-.md-grid {
-  max-width: 76rem;
-}
+/* Small wiki-style refinements; Material remains responsible for layout. */
+.md-grid { max-width: 82rem; }
 
 .tron-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1rem;
-  margin: 1.25rem 0 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: .8rem;
+  margin: 1.25rem 0 1.75rem;
 }
 
 .tron-card {
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 0.35rem;
-  padding: 0.5rem 1rem;
+  border-radius: .25rem;
+  padding: .25rem .9rem .6rem;
   background: var(--md-default-bg-color);
-  box-shadow: 0 0.15rem 0.4rem rgb(0 0 0 / 5%);
 }
 
-.tron-card h3 {
-  margin-top: 0.5rem;
-}
+.tron-card h3 { margin: .55rem 0 .2rem; }
+.tron-card p { margin: .25rem 0; }
 
-.md-typeset table:not([class]) th {
-  white-space: nowrap;
-}
-
+.md-typeset table:not([class]) { font-size: .78rem; }
+.md-typeset table:not([class]) th { white-space: normal; }
 .md-typeset table:not([class]) tbody tr:nth-child(even) {
-  background-color: color-mix(in srgb, var(--md-default-fg-color) 3%, transparent);
+  background: color-mix(in srgb, var(--md-default-fg-color) 3%, transparent);
 }
 
-.status-label {
-  display: inline-block;
-  padding: 0.1rem 0.45rem;
-  border: 1px solid var(--md-default-fg-color--lighter);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
+.wiki-facts {
+  float: right;
+  width: min(22rem, 42%);
+  margin: 0 0 1rem 1.4rem;
+  font-size: .78rem;
 }
-
-.home-eyebrow {
-  margin-bottom: -0.65rem;
-  color: var(--md-primary-fg-color);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.tron-card-grid--compact {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 1.5rem 0;
-}
-
-.tron-card-grid--compact .tron-card {
-  padding: 0.35rem 1rem;
-}
-
-.tron-card-grid--compact .tron-card h3 {
-  margin: 0.55rem 0 0.25rem;
-}
-
-.home-status {
-  margin: 1.5rem 0;
-  color: var(--md-default-fg-color--light);
-  font-size: 0.85rem;
-}
+.wiki-facts table { width: 100%; }
 
 @media screen and (max-width: 50rem) {
-  .tron-card-grid--compact {
-    grid-template-columns: 1fr;
-  }
+  .tron-card-grid--compact { grid-template-columns: 1fr; }
+  .wiki-facts { float: none; width: 100%; margin: 0 0 1rem; }
 }

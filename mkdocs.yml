@@ -59,79 +59,39 @@ markdown_extensions:
 extra_css:
   - assets/stylesheets/extra.css
 
-copyright: Internal technical documentation - Technology Development Ubbink
+copyright: Engineering documentation — Technology Development Ubbink
 
 nav:
   - Home: index.md
-  - Start Here:
-      - getting-started/index.md
-      - Documentation Status: getting-started/documentation-status.md
-      - Safety: getting-started/safety.md
-      - First Start: getting-started/first-start.md
-      - Shutdown: getting-started/shutdown.md
   - Robot Guide:
-      - Hardware:
-          - hardware/index.md
-          - Robot Overview: hardware/robot-overview.md
-          - Controller and VR Headset: hardware/controller.md
-          - Battery and Charger: hardware/battery-and-charger.md
-          - Connections and Ports: hardware/connections-and-ports.md
-          - Sensors: hardware/sensors.md
-      - Operation:
-          - operation/index.md
-          - Preparation: operation/preparation.md
-          - Startup: operation/startup.md
-          - Standing and Sitting: operation/standing-and-sitting.md
-          - Walking: operation/walking.md
-          - Shutdown: operation/shutdown.md
-          - Emergency Stop: operation/emergency-stop.md
-  - Software & Development:
-      - Software:
-          - software/index.md
-          - Software Overview: software/software-overview.md
-          - Installation: software/installation.md
-          - LimX Tools: software/limx-tools.md
-          - Firmware: software/firmware.md
-          - Version Compatibility: software/version-compatibility.md
-      - Networking:
-          - networking/index.md
-          - Network Overview: networking/network-overview.md
-          - Ethernet Setup: networking/ethernet-setup.md
-          - SSH Access: networking/ssh-access.md
-          - Remote Access: networking/remote-access.md
-          - Troubleshooting: networking/troubleshooting.md
-      - ROS 2:
-          - ros2/index.md
-          - Installation: ros2/installation.md
-          - Workspace: ros2/workspace.md
-          - Packages: ros2/packages.md
-          - Nodes: ros2/nodes.md
-          - Topics and Services: ros2/topics-and-services.md
-          - Examples: ros2/examples.md
-      - Programming:
-          - programming/index.md
-          - Development Environment: programming/development-environment.md
-          - Python: programming/python.md
-          - C++: programming/cpp.md
-          - API Reference: programming/api-reference.md
-          - Examples: programming/examples.md
-  - Help & Reference:
-      - Troubleshooting:
-          - troubleshooting/index.md
-          - Startup Problems: troubleshooting/startup-problems.md
-          - Connection Problems: troubleshooting/connection-problems.md
-          - Software Problems: troubleshooting/software-problems.md
-          - Error Messages: troubleshooting/error-messages.md
-          - Known Issues: troubleshooting/known-issues.md
-          - Diagnostic Information: troubleshooting/diagnostic-information.md
-      - Reference:
-          - reference/index.md
-          - Specifications: reference/specifications.md
-          - Terminology: reference/terminology.md
-          - Command Reference: reference/command-reference.md
-          - File Locations: reference/file-locations.md
-          - Document Sources: reference/document-sources.md
-          - Revision History: reference/revision-history.md
+      - Start Here: getting-started/index.md
+      - Safety: getting-started/safety.md
+      - Robot Overview: hardware/robot-overview.md
+      - Controller & VR: hardware/controller.md
+      - Batteries & Charging: hardware/battery-and-charger.md
+      - Connections & Indicators: hardware/connections-and-ports.md
+      - Sensors: hardware/sensors.md
+      - Operation: operation/index.md
+      - Startup: operation/startup.md
+      - Shutdown: operation/shutdown.md
+      - Emergency Stop: operation/emergency-stop.md
+  - Development:
+      - SDK Overview: software/index.md
+      - Installation: software/installation.md
+      - Firmware: software/firmware.md
+      - Version Compatibility: software/version-compatibility.md
+      - Networking: networking/index.md
+      - ROS 2 & Models: ros2/index.md
+      - C++ API: programming/cpp.md
+      - Python API: programming/python.md
+      - High-level API: programming/api-reference.md
+  - Troubleshooting: troubleshooting/index.md
+  - Reference:
+      - Specifications: reference/specifications.md
+      - Terminology: reference/terminology.md
+      - Command Reference: reference/command-reference.md
+      - Document Sources: reference/document-sources.md
+      - Revision History: reference/revision-history.md
   - Contributing:
       - contributing/index.md
       - Editing Pages: contributing/editing-pages.md

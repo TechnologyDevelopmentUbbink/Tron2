@@ -1,23 +1,16 @@
-# Revision History
+# Revision history
 
-This page will record meaningful documentation changes, review state, and source updates without inventing dates.
+| Documentation revision | Change | Review state |
+| --- | --- | --- |
+| 15 July 2026 | Imported official User Manual and SDK summaries; added controller/VR maps, operation, hardware, networking, APIs, robot models, sources, and troubleshooting; simplified navigation | Draft — technical/Ubbink review required |
+| Initial foundation | Created MkDocs Material structure and publishing workflow | Foundation |
 
-!!! info "Documentation status"
+## Source changes to monitor
 
-    This page is under development. Technical information has not yet been imported or verified.
+- TRON 2 User Manual revision and edition
+- SDK guide revision/online-page changes
+- `limxsdk-lowlevel` releases/commits
+- `robot-description` variants and commit
+- Robot firmware and application versions
 
-## Current Revision
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Change Log
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Source Updates
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Review Records
-
-Content is planned and will be added after suitable source material is reviewed.
+Documentation versioning is described in [Documentation Versioning](../contributing/versioning.md).

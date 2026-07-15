@@ -1,31 +1,27 @@
 # Sensors
 
-This page will document installed and optional sensors without assuming a particular robot configuration.
+Sensor availability depends on configuration and on whether the source describes physical hardware or only model geometry.
 
-!!! info "Documentation status"
+| Sensor or frame | Official source coverage | Notes |
+| --- | --- | --- |
+| IMU | User manual and robot-description repository | Present across documented variants; exact frame/model varies |
+| Waist RGB-D camera | User manual | Listed for both EDU and standard editions |
+| Head RGB-D camera | User manual | Listed for the EDU dual-arm configuration |
+| Wrist RGB-D cameras | User manual | Listed for the EDU dual-arm configuration |
+| Chest D435-style frame | robot-description repository | Geometry/frame representation; simulation plugin support varies |
+| YG peripheral stack | robot-description repository | Variant-specific modeled links and documented physical peripherals |
 
-    This page is under development. Technical information has not yet been imported or verified.
+!!! warning "Model is not proof of installed hardware"
 
-## Overview
+    A URDF link or mesh does not prove that a sensor is installed, powered, calibrated, or supported by a driver on the Ubbink robot.
 
-Content is planned and will be added after suitable source material is reviewed.
+## Ubbink inventory
 
-## Installed Configuration
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Sensor Inventory
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Interfaces
-
-Content is planned and will be added after suitable source material is reviewed.
-
-## Calibration
-
-Content is planned and will be added after suitable source material is reviewed.
+| Location | Device/model | Serial recorded elsewhere | Driver/version | Verified |
+| --- | --- | --- | --- | --- |
+| Not recorded | Not recorded | No | Not recorded | No |
 
 ## Sources
 
-Content is planned and will be added after suitable source material is reviewed.
+- LimX Dynamics, *TRON 2 User Manual*, v0.1, section 1.2.
+- [LimX TRON 2 robot-description repository](https://github.com/limx-tron2/robot-description), variant and sensor overview.

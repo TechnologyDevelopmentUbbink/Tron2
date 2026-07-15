@@ -5,34 +5,46 @@ hide:
 
 # TRON 2 Documentation
 
-A searchable home for official source material, verified procedures, and practical engineering knowledge about the LimX Dynamics TRON 2.
+Practical, searchable documentation for the LimX Dynamics TRON 2, based on official manuals, public model repositories, and future Ubbink verification.
 
-[Start here](getting-started/index.md){ .md-button .md-button--primary }
-[Controller guide](hardware/controller.md){ .md-button }
+[Controller & VR](hardware/controller.md){ .md-button .md-button--primary }
+[Start and stop](operation/startup.md){ .md-button }
+[SDK development](software/index.md){ .md-button }
 
-!!! warning "Work in progress"
+!!! warning "Documentation in review"
 
-    Content is incomplete and may not yet be verified. Always follow approved official safety instructions.
+    This wiki summarizes source material; it does not replace the current official manual or approved safety instructions. Check the source and applicable robot configuration before acting.
 
 <div class="tron-card-grid tron-card-grid--compact" markdown>
 
 <div class="tron-card" markdown>
-### [Start Here](getting-started/index.md)
-Read the status and safety material before using procedures.
+### [Operate](operation/index.md)
+Startup, shutdown, emergency stop, handheld control, and VR teleoperation.
 </div>
 
 <div class="tron-card" markdown>
-### [Controller & VR](hardware/controller.md)
-Build the verified map of controls, combinations, and headset operation.
+### [Understand the robot](hardware/robot-overview.md)
+Configurations, interfaces, batteries, sensors, and status indications.
 </div>
 
 <div class="tron-card" markdown>
-### [Troubleshooting](troubleshooting/index.md)
-Find diagnostic workflows and the evidence to collect.
+### [Develop](software/index.md)
+SDK layers, supported environments, APIs, ROS integration, and robot models.
+</div>
+
+<div class="tron-card" markdown>
+### [Diagnose](troubleshooting/index.md)
+Safe first checks and the information to collect before escalation.
 </div>
 
 </div>
 
-<p class="home-status"><span class="status-label">Development</span> One live documentation stream. Multi-version publishing is not enabled yet. <a href="contributing/versioning/">How versioning will work</a>.</p>
+## Source status
 
-**More guides:** [Operation](operation/index.md) | [Networking](networking/index.md) | [Software](software/index.md) | [ROS 2](ros2/index.md) | [Reference](reference/index.md)
+| Source | Coverage | Wiki status |
+| --- | --- | --- |
+| TRON 2 User Manual, EDU edition, v0.1 | Hardware, operation, controller, VR, networking | Summarized; Ubbink verification pending |
+| TRON 2 SDK Development Guide, v0.5 | Low/high-level APIs, software, upgrade references | Core structure imported |
+| `limx-tron2/robot-description` | URDF, Xacro, MuJoCo, meshes, model variants | Repository structure documented |
+
+See [Document sources](reference/document-sources.md) for versions, scope, and redistribution notes.

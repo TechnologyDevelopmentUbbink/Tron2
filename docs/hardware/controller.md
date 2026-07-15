@@ -1,152 +1,96 @@
-# Controller and VR Headset
+# Controller and VR headset
 
-This page is the working structure for learning and documenting every physical control, button combination, operating state, and VR-headset interaction used with the TRON 2.
+This page maps the official handheld and VR controls for the configurations covered by the TRON 2 User Manual.
 
-!!! danger "Not an operating instruction yet"
+!!! danger "Read before operating"
 
-    The controller mappings and procedures have not been imported or verified. Do not operate the robot from this page until each action is supported by an official source or a recorded Ubbink verification.
-
-## What this guide will cover
-
-- Identifying the exact handheld controller and VR equipment
-- Explaining every button, stick, trigger, switch, and indicator
-- Documenting single-button actions and multi-button combinations
-- Recording the state or mode required for each action
-- Showing the expected robot and controller feedback
-- Explaining how to begin, use, and end a VR control session
-- Providing safe stop, recovery, and troubleshooting references
-
-## Equipment and version record
-
-Complete this table before adding control mappings. A different controller profile, firmware release, or headset can change the behavior.
-
-| Item | Identified value | Evidence |
-| --- | --- | --- |
-| Handheld controller manufacturer and model | Not yet recorded | Not yet imported |
-| VR headset manufacturer and model | Not yet recorded | Not yet imported |
-| VR controller model | Not yet recorded | Not yet imported |
-| Robot hardware revision | Not yet recorded | Not yet imported |
-| Robot firmware version | Not yet recorded | Not yet imported |
-| Controller profile or application version | Not yet recorded | Not yet imported |
-
-!!! info "Version dependent"
-
-    Treat every mapping on this page as version dependent. Record the tested versions with each verified control table.
-
-## Before using a controller
-
-The verified guide must define these conditions before any button instructions are published:
-
-- Required operator training and approved source documents
-- Suitable operating area and pre-operation checks
-- How the active control mode is identified
-- How the operator confirms which controller has authority
-- The approved stop and emergency response references
-- What to do when controller feedback differs from the documented result
-
-See [Safety](../getting-started/safety.md), [Operation preparation](../operation/preparation.md), and [Emergency stop](../operation/emergency-stop.md). These pages are also under development.
+    These mappings are **official-source summaries, not Ubbink-verified instructions**. Confirm the robot configuration, clear the operating area, keep the physical emergency stop accessible, and start at low risk. Several emergency commands cause the robot to drop.
 
 ## Handheld controller
 
-### Annotated controller views
+The controller has a D-pad, two joysticks with push buttons, face buttons (`△`, `○`, `×`, `□`), shoulder buttons (`L1`, `L2`, `R1`, `R2`), a display, and a power button. The display reports radio signal, controller battery, robot state information, and current mode.
 
-Add clear front, rear, and top images after the exact controller is identified. Number each physical control on the image and use the same number in the control inventory.
+### Common and dual-arm commands
 
-!!! note "Image needed"
+| Purpose | Input | Required state | Important behavior |
+| --- | --- | --- | --- |
+| Change mode | `R1` + right face button | Idle | Dual-arm cycles VR teleoperation / developer mode; leg configurations cycle remote-control / developer mode |
+| Return action | `L1` + `×` | Remote-control or high-level developer mode | Dual-arm lowers/returns arms; leg configurations squat/fold; then enters idle |
+| Enter idle immediately | `L1` + `□` | Global | Skips return action; joints enter damping and the robot can drop. Emergency use only |
+| Emergency stop | Push both joystick buttons | Global | Motor drives are cut immediately; the robot can drop |
+| Release controller e-stop | Push right joystick button | E-stop state | Motors are re-enabled and the robot enters damping state |
+| Zero calibration | `L1` + `R1` | Idle | Only after controller upgrade or confirmed zero-position loss/drift; follow the full manual procedure |
 
-    Store approved images under `docs/assets/images/controller/`. Remove serial numbers, account names, network details, and other sensitive information before publishing.
+### Bipedal and wheeled-biped commands
 
-### Complete control inventory
+| Purpose | Input | Required state |
+| --- | --- | --- |
+| Enter ready state | `L1` + `○` | Idle or standing |
+| Stand in place | `L1` + `△` | Ready |
+| Move forward/back | Left joystick up/down | Standing |
+| Move left/right | Left joystick left/right | Standing; biped only |
+| Turn in place | Right joystick left/right | Standing |
+| Adjust body height | Hold `R1` + D-pad up/down | Standing |
+| Switch flat/stair mode | Hold `□` for 2 s | Standing; wheeled-biped only |
+| Fall recovery | `L2` + `△` | Fall detected |
 
-Add one row for every labeled or movable control. Do not copy mappings from a similar-looking controller.
+!!! warning "Configuration-specific controls"
 
-| Image no. | Printed label | Control type and location | Action | Required state | Expected feedback | Classification and source |
-| --- | --- | --- | --- | --- | --- | --- |
-| To be documented | To be documented | To be documented | Not yet verified | Not yet verified | Not yet verified | Unverified |
+    Do not use a biped/wheeled-biped command table on a dual-arm configuration, or vice versa. The same combination can have a different prerequisite or outcome.
 
-### Button combinations
+## VR teleoperation
 
-Record timing and order precisely. A simultaneous press, ordered sequence, short press, and long press are different combinations.
+The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. The two VR controllers provide joysticks, grip buttons, triggers, face buttons, and home/menu controls.
 
-| Combination | Exact input and timing | Required state | Intended action | Expected feedback | Abort or recovery | Classification and source |
-| --- | --- | --- | --- | --- | --- | --- |
-| To be documented | Not yet verified | Not yet verified | Not yet verified | Not yet verified | Not yet verified | Unverified |
+### Dual-arm VR controls
 
-### Indicators and feedback
+| Purpose | Input | Required state |
+| --- | --- | --- |
+| Start teleoperation / establish initial zero | Hold both grip buttons for more than 1 s | Robot in VR teleoperation mode |
+| Return arms to initial zero | Hold both grip buttons for more than 1 s | Active teleoperation |
+| Move end effectors | Move the held VR controllers | Initial-zero or active teleoperation state |
+| Pause/resume left arm | Left-controller `X` | Initial-zero or active teleoperation state |
+| Pause/resume right arm | Right-controller `A` | Initial-zero or active teleoperation state |
+| Toggle left gripper | Left trigger | Initial-zero or active teleoperation state |
+| Toggle right gripper | Right trigger | Initial-zero or active teleoperation state |
+| Start data collection | Right-controller `B` | Active teleoperation |
+| Stop data collection | Right-controller `B` again | Collection active |
 
-| Indicator, sound, or vibration | Pattern | Meaning | Operator response | Classification and source |
-| --- | --- | --- | --- | --- |
-| To be documented | Not yet verified | Not yet verified | Not yet verified | Unverified |
+### Mobile chassis and lift (where fitted)
 
-## VR headset and VR controllers
+| Purpose | Input |
+| --- | --- |
+| Forward/backward | Left joystick forward/back |
+| Ackermann steering | Right joystick left/right in Ackermann mode |
+| Select diagonal mode | Hold right joystick for 1 s |
+| Select Ackermann mode | Hold left joystick for 1 s |
+| Parking state | Hold left-controller grip and right-controller joystick for 1 s |
+| VR emergency stop | Push both VR joysticks |
+| Raise/lower lift | Hold right grip and move left joystick forward/back |
 
-### Scope and equipment
+## Preparing a VR session
 
-This section will describe the specific supported headset, its hand controllers, the robot-side software involved, and the limits of the verified configuration. It must not assume that another headset or application behaves the same way.
+1. Confirm the exact robot configuration and the supported headset/application version.
+2. Complete robot startup and confirm the area is clear.
+3. Put the robot into VR teleoperation mode using the handheld controller.
+4. Connect the headset using the approved robot network profile. Credentials and fixed addresses are intentionally not published here.
+5. Start the official teleoperation application and verify its target robot before granting control.
+6. Establish the initial-zero state, verify both arms at low risk, then begin work.
 
-### VR control map
+!!! note "Calibration is exceptional"
 
-Create separate annotated images for the left and right VR controllers and add every physical input to this table.
+    The manual says zero calibration is required only after a controller upgrade or severe impact causing zero-position loss or drift. It is not a normal startup step.
 
-| Hand | Printed label or image no. | Input | Action | Required state | Expected feedback | Classification and source |
-| --- | --- | --- | --- | --- | --- | --- |
-| To be documented | To be documented | To be documented | Not yet verified | Not yet verified | Not yet verified | Unverified |
+## Ubbink verification record
 
-### VR button combinations
+| Item | Value |
+| --- | --- |
+| Robot configuration tested | Not tested |
+| Robot firmware | Not recorded |
+| Handheld controller version | Not recorded |
+| VR headset/app version | Not recorded |
+| Verified by | Not reviewed |
 
-| Combination | Left-hand input | Right-hand input | Timing | Required state | Intended action | Classification and source |
-| --- | --- | --- | --- | --- | --- | --- |
-| To be documented | Not yet verified | Not yet verified | Not yet verified | Not yet verified | Not yet verified | Unverified |
+## Source
 
-### Start a VR session
-
-1. **Prerequisites:** not yet imported or verified.
-2. **Prepare the headset and application:** not yet imported or verified.
-3. **Connect to the robot:** not yet imported or verified.
-4. **Confirm control authority and mode:** not yet imported or verified.
-5. **Verify feedback before movement:** not yet imported or verified.
-
-### End a VR session
-
-1. **Return the robot to the approved state:** not yet imported or verified.
-2. **Release VR control authority:** not yet imported or verified.
-3. **Disconnect or close the application:** not yet imported or verified.
-4. **Record unexpected behavior:** not yet imported or verified.
-
-## Procedure template for each action
-
-Use this structure when a control action is added:
-
-1. Name the intended outcome.
-2. State all prerequisites and the required robot/control mode.
-3. Identify the exact controller and applicable versions.
-4. Describe the input, order, and timing.
-5. Describe expected controller, application, and robot feedback.
-6. Explain how to stop or abandon the action safely by linking to an approved procedure.
-7. Record the source classification and evidence.
-
-??? example "Example record structure - no real mapping"
-
-    **Action:** `[descriptive action name]`
-    **Required state:** `[verified state]`
-    **Input:** `[exact button or combination and timing]`
-    **Expected feedback:** `[verified visible, audible, or physical response]`
-    **Applicable versions:** `[hardware, firmware, application, and controller profile]`
-    **Source:** `[official document and section, or Ubbink verification record]`
-
-## Troubleshooting
-
-Until verified diagnostics are available, record the following without exposing confidential information:
-
-- Exact equipment models and relevant versions
-- Robot and controller state before the problem
-- Exact input sequence and timing
-- Visible indicators and application messages
-- Whether the behavior can be reproduced
-- Changes made since the last known working session
-
-See [Connection problems](../troubleshooting/connection-problems.md), [Software problems](../troubleshooting/software-problems.md), and [Diagnostic information](../troubleshooting/diagnostic-information.md).
-
-## Sources
-
-No controller or VR source material has been imported yet. When sources become available, record document title, version, language, page or section, and redistribution restrictions in [Document sources](../reference/document-sources.md).
+LimX Dynamics, *TRON 2 User Manual*, TRON 2 EDU edition, v0.1, 11 June 2026, sections 4 and 5. Tables are paraphrased; consult the source for complete prerequisites, warnings, and illustrations.
