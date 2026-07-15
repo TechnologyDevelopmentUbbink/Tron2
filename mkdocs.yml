@@ -1,0 +1,142 @@
+site_name: TRON 2 Documentation
+site_description: Technical documentation and internal knowledge base for the LimX Dynamics TRON 2
+site_author: Technology Development Ubbink
+site_url: https://technologydevelopmentubbink.github.io/Tron2/
+repo_url: https://github.com/TechnologyDevelopmentUbbink/Tron2
+repo_name: TechnologyDevelopmentUbbink/Tron2
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+copyright: Internal technical documentation - Technology Development Ubbink
+
+nav:
+  - Home: index.md
+  - Start Here:
+      - getting-started/index.md
+      - Documentation Status: getting-started/documentation-status.md
+      - Safety: getting-started/safety.md
+      - First Start: getting-started/first-start.md
+      - Shutdown: getting-started/shutdown.md
+  - Robot Guide:
+      - Hardware:
+          - hardware/index.md
+          - Robot Overview: hardware/robot-overview.md
+          - Controller and VR Headset: hardware/controller.md
+          - Battery and Charger: hardware/battery-and-charger.md
+          - Connections and Ports: hardware/connections-and-ports.md
+          - Sensors: hardware/sensors.md
+      - Operation:
+          - operation/index.md
+          - Preparation: operation/preparation.md
+          - Startup: operation/startup.md
+          - Standing and Sitting: operation/standing-and-sitting.md
+          - Walking: operation/walking.md
+          - Shutdown: operation/shutdown.md
+          - Emergency Stop: operation/emergency-stop.md
+  - Software & Development:
+      - Software:
+          - software/index.md
+          - Software Overview: software/software-overview.md
+          - Installation: software/installation.md
+          - LimX Tools: software/limx-tools.md
+          - Firmware: software/firmware.md
+          - Version Compatibility: software/version-compatibility.md
+      - Networking:
+          - networking/index.md
+          - Network Overview: networking/network-overview.md
+          - Ethernet Setup: networking/ethernet-setup.md
+          - SSH Access: networking/ssh-access.md
+          - Remote Access: networking/remote-access.md
+          - Troubleshooting: networking/troubleshooting.md
+      - ROS 2:
+          - ros2/index.md
+          - Installation: ros2/installation.md
+          - Workspace: ros2/workspace.md
+          - Packages: ros2/packages.md
+          - Nodes: ros2/nodes.md
+          - Topics and Services: ros2/topics-and-services.md
+          - Examples: ros2/examples.md
+      - Programming:
+          - programming/index.md
+          - Development Environment: programming/development-environment.md
+          - Python: programming/python.md
+          - C++: programming/cpp.md
+          - API Reference: programming/api-reference.md
+          - Examples: programming/examples.md
+  - Help & Reference:
+      - Troubleshooting:
+          - troubleshooting/index.md
+          - Startup Problems: troubleshooting/startup-problems.md
+          - Connection Problems: troubleshooting/connection-problems.md
+          - Software Problems: troubleshooting/software-problems.md
+          - Error Messages: troubleshooting/error-messages.md
+          - Known Issues: troubleshooting/known-issues.md
+          - Diagnostic Information: troubleshooting/diagnostic-information.md
+      - Reference:
+          - reference/index.md
+          - Specifications: reference/specifications.md
+          - Terminology: reference/terminology.md
+          - Command Reference: reference/command-reference.md
+          - File Locations: reference/file-locations.md
+          - Document Sources: reference/document-sources.md
+          - Revision History: reference/revision-history.md
+  - Contributing:
+      - contributing/index.md
+      - Editing Pages: contributing/editing-pages.md
+      - Adding Images: contributing/adding-images.md
+      - Writing Style: contributing/writing-style.md
+      - Source Classification: contributing/source-classification.md
+      - Review Process: contributing/review-process.md
+      - Documentation Versioning: contributing/versioning.md
