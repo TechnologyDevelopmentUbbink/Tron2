@@ -5,6 +5,7 @@ Source status: internet-sourced, unofficial. Compiled from LimX and NVIDIA publi
 Overview of which software runs where, and how the pieces of a full TRON 2 EDU + Isaac Sim/Lab + DGX Spark setup talk to each other.
 
 ![TRON 2 system architecture diagram](../assets/tron2-system-architecture.png)
+![TRON 2 system architecture diagram](../assets/images/tron2-system-architecture.png)
 
 ## Components
 
