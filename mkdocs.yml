@@ -82,12 +82,14 @@ nav:
       - Version Compatibility: software/version-compatibility.md
       - Networking: networking/index.md
       - ROS 2 & Models: ros2/index.md
+      - Isaac Sim, Isaac Lab & FluxVLA Training: software/isaac-sim-training.md
       - C++ API: programming/cpp.md
       - Python API: programming/python.md
       - High-level API: programming/api-reference.md
   - Troubleshooting: troubleshooting/index.md
   - Reference:
       - Specifications: reference/specifications.md
+      - System Architecture: reference/system-architecture.md
       - Terminology: reference/terminology.md
       - Command Reference: reference/command-reference.md
       - Document Sources: reference/document-sources.md
