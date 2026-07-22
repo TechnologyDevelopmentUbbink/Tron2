@@ -69,8 +69,10 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 
 #### 1.3 — Read the cube's position and print it (still no motion)
 
-- [ ] Write a small script that only reads the cube's `[x,y,z]` and prints it. Nothing moves yet.
-- [ ] Move the cube around and confirm the printed numbers actually change to match.
+- [x] Write a small script that only reads the cube's `[x,y,z]` and prints it. Nothing moves yet.
+- [x] Move the cube around and confirm the printed numbers actually change to match.
+
+[Phase 1.3 – Cube movement](../assets/Results_Project_Cube/1-3-cube-movement-python.md)
 
 #### 1.4 — Convert cube position to "relative to the robot"
 
