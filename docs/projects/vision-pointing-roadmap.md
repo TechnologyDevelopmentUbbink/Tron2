@@ -12,7 +12,6 @@ Primary first use case: place a coloured cube in front of the robot and make one
 
 Superseded document
 
-This page replaces the original Word roadmap (`Vision-to-Pointing Development Roadmap.docx`, kept in `source-documents/` for archive only). Do not edit the Word file going forward — this page is the live version.
 
 ## How the complete system will eventually work
 
@@ -28,16 +27,12 @@ Camera frame (RGB+D) → Target selection → 3D position (camera frame)
 
 - The TRON 2 SDK distinguishes simulation at `127.0.0.1` from the real robot at `10.192.1.2`.
 - The SDK exposes robot state: joint angle `q`, velocity `dq`, estimated torque `tau`.
-- The low-level example publishes position, velocity, torque, `Kp`, `Kd` commands at 300 Hz — safety-critical, treat as last resort.
 - The EDU compute module is intended for robot-related algorithms and can talk to the robot controller over the robot network.
 
-Version dependent
-
-Exact availability/naming of high-level Cartesian or ServoJ functions must be checked against the installed firmware and SDK version before implementation.
 
 ### Robot model for Isaac Sim
 
-Don't re-solve this here — see [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo and import steps. Phase 1 Task 1 below just points back to that.
+See [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description`
 
 ---
 
@@ -270,19 +265,3 @@ Unverified — Phases 1–3 not yet complete.
 </details>
 
 ---
-
-## Recommended first action
-
-Download/import the correct TRON 2 description, create a clean writable Isaac Sim project, add one cube, verify articulation and joint mapping — **before writing any pointing controller.** The first program should only read the cube pose and print it (Task 1.3 above).
-
-## Sources
-
-| Source | URL |
-|---|---|
-| Original roadmap (archived) | `source-documents/Vision-to-Pointing Development Roadmap.docx` |
-| TRON 2 robot model | `github.com/limxdynamics/robot-description` |
-| Isaac Sim / Isaac Lab / FluxVLA page (this wiki) | [`software/isaac-sim-training.md`](../software/isaac-sim-training.md) |
-| TRON 2 SDK Development Guide | internal — see `reference/document-sources.md` |
-| TRON 2 User Manual | internal — see `reference/document-sources.md` |
-
-*This roadmap is based on the supplied TRON 2 SDK Development Guide and User Manual, plus the LimX GitHub org. Exact SDK function names/availability must be verified against the installed firmware/SDK version before implementation.*
