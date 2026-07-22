@@ -25,7 +25,7 @@ Import the correct TRON 2 robot model into Isaac Sim, verify that the USD loads 
 
 **Repository**
 
-See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo.
+See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo.
 
 **Robot Variant**
 
