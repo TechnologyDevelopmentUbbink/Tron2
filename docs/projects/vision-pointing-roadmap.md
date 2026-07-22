@@ -6,16 +6,13 @@ title: Vision-to-Pointing Development Roadmap
 
 Source status: internal project plan, partly Unverified until each phase is executed. Not yet Ubbink-verified end to end.
 
-This page is a **living build log**, not a fixed spec. Each checklist item gets updated in place as work happens: software/version used, what worked, what didn't, dead ends. If the project stalls at any phase, this page should still stand on its own as a usable record for whoever picks it up next (including future-you).
+This page is a living build log, not a fixed spec. Each checklist item gets updated in place as work happens: software/version used, what worked, what didn't, dead ends. If the project stalls at any phase, this page should still stand on its own as a usable record for whoever picks it up next (including future-you).
 
 Primary first use case: place a coloured cube in front of the robot and make one arm point toward it without touching it.
 
-Superseded document
-
-
 ## How the complete system will eventually work
 
-The final system is not one giant AI model. It is a chain of small modules, each receiving a defined data type and sending a defined data type to the next module:
+The final system is not one giant AI model. It is a chain of small modules. Each one takes a simple input and hands off a simple, well-defined output to the next one:
 
 ```
 Camera frame (RGB+D) → Target selection → 3D position (camera frame)
@@ -25,243 +22,184 @@ Camera frame (RGB+D) → Target selection → 3D position (camera frame)
 
 ### Official SDK facts used in this guide
 
-- The TRON 2 SDK distinguishes simulation at `127.0.0.1` from the real robot at `10.192.1.2`.
-- The SDK exposes robot state: joint angle `q`, velocity `dq`, estimated torque `tau`.
-- The EDU compute module is intended for robot-related algorithms and can talk to the robot controller over the robot network.
-
+- The TRON 2 SDK talks to the simulator at `127.0.0.1` and the real robot at `10.192.1.2` — different addresses, don't mix them up.
+- The SDK gives you the robot's joint angle (`q`), joint speed (`dq`), and estimated torque (`tau`).
+- The EDU compute module is where your own code runs and talks to the robot controller over the robot's network.
 
 ### Robot model for Isaac Sim
 
-See [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description`
+See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo.
 
 ---
 
-## Project rule
+## Project steps
 
-Each phase must produce saved evidence before the next phase starts. This keeps vision, calibration, motion planning, SDK communication, and (later) VLM behaviour from all failing at once and being impossible to untangle.
-
-| Phase | Summary |
+| Phase | What changes |
 |---|---|
-| 1. Simulation | Simulated cube → simulated TRON 2 points at it |
-| 2. Real control | Same motion, on the real TRON 2, target still manual |
-| 3. Camera | Real RGB-D camera → measured 3D target |
-| 4. VLM | Natural-language object selection, geometry stays deterministic |
+| 1. Simulation | Fake cube, fake robot — just prove the math and motion work |
+| 2. Real control | Same motion, but on the real TRON 2. Target is still a number you type in |
+| 3. Camera | A real camera finds the real cube instead of you typing in a number |
+| 4. VLM | You can say what to point at instead of it always being "the cube" |
 
 ---
 
-## PHASE 1 — Simulated cube → simulated TRON 2 points at it
+## **PHASE 1** — Simulated cube → simulated TRON 2 points at it
 
-**Goal:** learn Isaac Sim and prove the geometry + arm-motion chain before any camera or physical robot is involved.
+**Goal:** learn Isaac Sim and prove the geometry + arm-motion chain work, before any camera or real robot is involved.
 
 **Data contract:** input = exact cube position from the Isaac stage. Output = simulated joint targets and a visible pointing pose. No camera, no VLM, no real robot.
 
-**Definition of "pointing":** use one clearly named pointing frame (e.g. right gripper centre, or a temporary `pointer_tip` frame). The target pose stops *before* the cube, doesn't collide with it:
-
-```
-pointer_position = cube_position - safety_offset × pointing_direction
-```
-
 ### Checklist
 
-#### 1.1 — Get a writable Isaac Sim project with the TRON 2 model loaded
+#### 1.1 — Get the robot model into a working Isaac Sim project
 
-- [ ] Clone `limxdynamics/robot-description`, pick the TRON 2 variant matching your hardware (dual-arm/desktop). See linked page above for exact steps.
-- [ ] If no ready `.usd`: import via Isaac Sim's URDF Importer extension.
-- [ ] Saved `.usd`/`.usda` scene opens without missing references.
-- [ ] Robot appears with expected links and joints; **Articulation Root** is set correctly (per the linked page, this is the most common source of silent physics failures — check it explicitly, don't assume).
+- [ ] Clone `limxdynamics/robot-description`, pick the TRON 2 variant that matches your actual hardware (dual-arm/desktop). See linked page above for exact steps.
+- [ ] Open the scene — it should load with no missing-file errors.
+- [ ] Check the robot has all its expected joints/links, and that the **Articulation Root** is set. (If this is wrong, the robot will look fine but physics silently won't work)
 
-<details><summary>Build log</summary>
+#### 1.2 — Confirm you know which joint is which
 
-Unverified — not yet attempted at time of writing.
+- [ ] Write down which joint name in the model = which real joint (left arm, right arm, which DOF, in what order).
+- [ ] Move the cube by typing in numbers (not just dragging it) — confirm you can do this.
+- [ ] Pick one clear point on the arm that counts as "where it's pointing from" (e.g. gripper centre) and write down why you picked it.
 
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
+#### 1.3 — Read the cube's position and print it (still no motion)
 
-</details>
+- [ ] Write a small script that only reads the cube's `[x,y,z]` and prints it. Nothing moves yet.
+- [ ] Move the cube around and confirm the printed numbers actually change to match.
 
-#### 1.2 — Confirm joint mapping
+#### 1.4 — Convert cube position to "relative to the robot"
 
-- [ ] Joint mapping note saved (which URDF joint name = which physical joint, arm side, DOF order).
-- [ ] Cube can be moved numerically in the stage (script or console — not just dragging in viewport).
-- [ ] Named end-effector or pointer frame recorded (decide now: gripper centre vs. dedicated `pointer_tip` frame, and write down why).
+- [ ] Convert the cube's world position into "position relative to the robot's base."
+- [ ] Check it by hand: put the cube a known distance in front of the robot (e.g. 30 cm), confirm the converted number roughly says 30 cm.
 
-<details><summary>Build log</summary>
+#### 1.5 — Work out where the arm should point to
 
-Unverified.
+- [ ] Compute a target point a little *before* the cube, not on top of it: `pointer_position = cube_position - safety_offset × pointing_direction`.
+- [ ] Pick a safety offset distance and write it down (start safe: 20–30 cm).
+- [ ] Show a visible marker at that computed point, in front of the cube.
 
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
+#### 1.6 — Get the arm to actually move there
 
-</details>
-
-#### 1.3 — Read cube pose and print it (no motion yet)
-
-- [ ] First program only reads the cube pose and prints `[x,y,z]` — resist the urge to wire up motion before this is solid.
-- [ ] Printed values match the viewport (move the cube, confirm the printed numbers track it).
-
-<details><summary>Build log</summary>
-
-Unverified.
-
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
-
-</details>
-
-#### 1.4 — World-to-base transform
-
-- [ ] World-to-base transform test passes (cube's world-frame pose converts correctly to robot base frame — this is the same transform machinery Phase 3 will reuse for real camera data, so get it right here).
-
-<details><summary>Build log</summary>
-
-Unverified.
-
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
-
-</details>
-
-#### 1.5 — Generate the pointing pose
-
-- [ ] Pose marker appears in front of cube using `pointer_position = cube_position - safety_offset × pointing_direction`.
-- [ ] `safety_offset` value decided and recorded (start conservative, e.g. 20–30 cm per the original data contract note).
-
-<details><summary>Build log</summary>
-
-Unverified.
-
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
-
-</details>
-
-#### 1.6 — IK / motion generation
-
-- [ ] IK solver chosen and recorded here (Lula IK vs. cuRobo — check what LimX's own Isaac Lab repos use as a default before picking, since matching their convention may save integration pain later).
-- [ ] Joint targets stay inside limits.
-- [ ] Arm points without self-collision or cube contact.
-
-<details><summary>Build log</summary>
-
-Unverified.
-
-- Software/version:
-- Worked:
-- Didn't work / gotchas:
-
-</details>
+- [ ] **Decide:** pick an IK solver (Lula IK or cuRobo) and write down which one and why. Check what LimX's own Isaac Lab repos default to first — matching them may save you pain later.
+- [ ] **Check:** the arm reaches the point without going past its joint limits.
+- [ ] **Check:** the arm doesn't hit itself or touch the cube on the way there.
 
 #### 1.7 — Phase 1 exit gate
 
-- [ ] Moving the cube to **5 different reachable positions** causes the simulated arm to point correctly and repeatably.
-- [ ] Short video saved.
-- [ ] All 5 target coordinates saved alongside the video.
-
-Do not start Phase 2 until this gate passes.
+- [ ] Move the cube to **5 different spots** — the arm points correctly and repeatably every time.
+- [ ] Save a short video of this.
+- [ ] Save the 5 coordinates you tested, next to the video.
 
 ---
 
-## PHASE 2 — First real-robot test (target still manual)
+## **PHASE 2** — First real-robot test (target still typed in)
 
-**Goal:** make the physical TRON 2 reproduce a deliberately small, safe pointing motion. Target is still manually supplied — vision is not added yet.
+**Goal:** get the real TRON 2 to do the same small, safe pointing motion. You still type in the target by hand — no camera yet.
 
-**Preferred control path:** use a high-level Cartesian, ServoJ, or end-pose interface when LimX provides one. Only drop to low-level 300 Hz joint commands after the high-level route has been evaluated and its safety behaviour understood.
+**Preferred way in:** use a high-level move command (Cartesian/ServoJ/end-pose) if LimX gives you one. Only use raw 300 Hz joint commands if there's no other option — that path is powerful but unforgiving.
 
 ### Checklist
 
-- [ ] Read-only SDK connection succeeds (ping, motor count, `q`/`dq`/`tau` stream printed — **no motion**).
-- [ ] Emergency-stop procedure written down and rehearsed before anything moves.
-- [ ] High-level arm interface tested.
-- [ ] Sim-to-real joint map completed (does Isaac's joint order/naming match the SDK's?).
-- [ ] Safety checklist signed off.
-- [ ] Small commanded pose change succeeds.
-- [ ] Target point recorded in robot-base coordinates; calculated pose logged *before* execution, not just after.
-- [ ] Robot moves smoothly while state is logged.
-- [ ] Error report saved (even/especially if there were no errors — note that).
-- [ ] **Exit gate:** physical robot points toward 3 manually specified targets while staying inside a deliberately restricted workspace. Repeatable, observable, stoppable.
+#### 2.1 — Connect, but don't move anything yet
 
-<details><summary>Build log</summary>
+- [ ] Connect to the robot, ping it, print motor count and the `q`/`dq`/`tau` stream. **The robot must not move for this step.**
 
-Unverified — Phase 1 not yet complete.
+#### 2.2 — Safety prep
 
-</details>
+- [ ] Write down the emergency-stop procedure and actually practice it before anything moves.
+- [ ] Write down the workspace limits — the exact box/area the arm is allowed to move in during testing.
 
-*(This phase will get the same item-by-item depth as Phase 1 once you're actually working through it.)*
+#### 2.3 — Make sure sim and real agree
+
+- [ ] Check that the joint order/names in Isaac match the joint order/names the real SDK uses.
+- [ ] Try the high-level move interface once, with something trivial.
+
+#### 2.4 — First real movement, small and safe
+
+- [ ] Command one small pose change and confirm it works.
+- [ ] Keep logging robot state while it moves; save what you see, even if nothing went wrong.
+
+#### 2.5 — Full pointing motion, with a typed-in target
+
+- [ ] Type in a target position (in robot-base coordinates), log the pose you calculated *before* you send it, then execute.
+
+#### 2.6 — Phase 2 exit gate
+
+- [ ] The real robot points at 3 different typed-in targets, staying inside the workspace limits you wrote down. It should be repeatable, easy to watch, and easy to stop.
 
 ---
 
-## PHASE 3 — Real RGB-D camera → measured 3D target
+## **PHASE 3** — Real camera finds the real cube
 
-**Goal:** replace the manually entered target with a measured one. After the target reaches robot-base coordinates, the rest of the chain is identical to Phase 2.
-
-**The key idea:** don't "put the real block into Isaac" as the control method. Convert the detected block into a robot-base-frame coordinate — the transform, not a visual copy, is what makes the arm move correctly. Isaac may show the point as a marker/digital twin for validation only.
-
-### Pipeline
-
-```
-RGB image → Depth image → Camera intrinsics (fx,fy,cx,cy) → 3D point (camera frame)
-  → Extrinsic transform (camera→base) → Phase 2 motion chain
-```
+**Goal:** stop typing in the target — let a real camera find the cube instead. Everything after that point is identical to Phase 2.
 
 ### Checklist
 
-- [ ] Camera hardware decided and recorded here (RealSense vs. TRON 2 onboard RGB-D).
-- [ ] One synchronized RGB+depth frame saved.
-- [ ] `fx, fy, cx, cy` and depth scale recorded.
-- [ ] Cube detection: mask, bounding box, centre pixel `(u,v)` — start with HSV thresholding.
-- [ ] Depth read at centre/median over mask; missing/zero/noisy depth rejected.
-- [ ] Camera-frame point `[Xc,Yc,Zc]` printed in metres, stable across frames.
-- [ ] `T_base_camera` calibration done (hand-eye calibration — budget real time for this, it's usually the long pole of this whole phase) and saved with version/date.
-- [ ] Base-frame `[Xb,Yb,Zb]` printed.
-- [ ] Marker in Isaac/RViz follows the real cube when moved.
-- [ ] Accuracy table completed across 5 positions; outliers explained, not hand-waved.
-- [ ] Unsafe/low-confidence targets rejected before motion.
-- [ ] **Exit gate:** move the real cube to 5 locations; detected coordinates plausible, marker agrees with reality, robot points only when confidence + workspace checks pass.
+#### 3.1 — Get the camera working
 
-<details><summary>Build log</summary>
+- [ ] Decide which camera (RealSense vs. TRON 2's built-in one) and write it down.
+- [ ] Save one matched colour + depth image, and record the camera's calibration numbers (`fx, fy, cx, cy` and depth scale).
 
-Unverified — Phases 1–2 not yet complete.
+#### 3.2 — Find the cube in the image
 
-</details>
+- [ ] Detect the cube (simplest option: colour thresholding) and get its centre pixel.
+- [ ] Read the depth at that pixel; throw away the reading if it's missing, zero, or clearly wrong.
+
+#### 3.3 — Turn that pixel into a real 3D point
+
+- [ ] Convert pixel + depth into an actual `[X,Y,Z]` point in metres, from the camera's point of view. Confirm it stays stable across a few frames (not jumping around).
+
+#### 3.4 — Line up the camera with the robot
+
+- [ ] Do a camera-to-robot calibration (hand-eye calibration) — this step usually takes longer than you expect, budget real time for it.
+- [ ] Convert the camera-frame point into robot-base coordinates and print it.
+
+#### 3.5 — Double check before letting it move
+
+- [ ] Show the computed point as a marker in Isaac/RViz and compare it to where the cube actually is in real life.
+- [ ] Test across 5 real positions, write down the results, and explain anything that doesn't match.
+- [ ] Make the system refuse to move if it's not confident in the detection.
+
+#### 3.6 — Phase 3 exit gate
+
+- [ ] Move the real cube to 5 spots. Every time: the detected position makes sense, matches reality, and the robot only points when it's confident.
 
 ---
 
-## PHASE 4 — Add a VLM to choose the object (not to replace geometry)
+## **PHASE 4** — Let a VLM pick what to point at
 
-**Goal:** support instructions like "point at the blue block" while keeping metric location and motion safety in deterministic modules. The VLM answers *"which thing does the user mean?"* only — it returns a label/box/mask/grounded reference. Depth, calibration, and coordinate transforms still produce the metric target.
+**Goal:** support instructions like "point at the blue block" or "point at a person" — but the actual position/motion math stays exactly as safe and deterministic as before. The VLM's only job is answering "which thing do they mean?" — it never gives a coordinate.
 
-### Message flow
-
-| Interface | Example payload |
+| Step | Example |
 |---|---|
-| User → VLM | `{"instruction": "Point at the red cube", "image": RGB_frame}` |
-| VLM → perception | `{"selected_object": "red cube", "region": [x1,y1,x2,y2], "confidence": 0.93}` |
-| Perception → geometry | `{"mask": ..., "center_pixel": [u,v], "depth_m": 0.84}` |
-| Geometry → motion | `{"frame": "base_link", "point_m": [0.51,-0.18,0.72], "confidence": 0.88}` |
-| Motion → SDK | Safe target pose or approved joint trajectory |
+| You → VLM | "Point at the red cube" + the camera image |
+| VLM → rest of system | "That's the red cube, here's roughly where it is in the image, I'm 93% sure" |
+| Rest of system → geometry | exact pixel + depth of that object |
+| Geometry → motion | the real 3D point in robot-base coordinates |
+| Motion → robot | the actual safe move command |
 
 ### Checklist
 
-- [ ] VLM choice recorded here. Note: LimX's own `FluxVLA` / OpenPI-based stack (pi0/pi0.5) is an end-to-end VLA (image+text → actions directly, no separate IK stage) — **deliberately not used here**, since it gives no guaranteed standoff distance or collision margin. Keep this as a reference for their WebSocket/robot-interface boilerplate only, not as the control architecture. See [Isaac Sim, Isaac Lab & FluxVLA Training](../software/isaac-sim-training.md) for that stack.
-- [ ] Command schema documented (as above).
-- [ ] Test scene and labels defined.
-- [ ] Latency and memory usage recorded.
-- [ ] JSON output validates against schema.
-- [ ] Overlay clearly marks intended object.
-- [ ] Base-frame target produced independently of VLM prose (i.e. geometry module never trusts coordinates from the VLM itself).
-- [ ] Operator preview understandable before execution.
-- [ ] Safety/ethics rule implemented; unsafe commands blocked.
-- [ ] **Exit gate:** system follows a natural-language instruction, selects the intended visible object, produces a verified 3D base-frame target, previews the motion, and points only after all deterministic safety checks pass.
+#### 4.1 — Pick a VLM and agree on its output format
 
-<details><summary>Build log</summary>
+- [ ] Pick a VLM, write down which one, and define exactly what it should return (label, region, confidence — nothing more).
 
-Unverified — Phases 1–3 not yet complete.
+#### 4.2 — Reuse everything from Phase 3
 
-</details>
+- [ ] Feed the VLM's chosen region into the *same* detection/geometry pipeline from Phase 3 — don't build a new one.
+- [ ] Make sure the geometry step never trusts a coordinate from the VLM directly — only from the same measured pipeline as before.
+
+#### 4.3 — Add the safety net
+
+- [ ] Measure how slow this is (latency) and how much memory it uses.
+- [ ] Show what the system thinks you meant before it moves (an overlay on the image is enough).
+- [ ] If the VLM isn't confident, or picks something ambiguous, refuse to move.
+
+#### 4.4 — Phase 4 exit gate
+
+- [ ] Say a plain instruction → correct object gets picked → a real, checked 3D position comes out → the robot only points once every safety check passes.
+
+Note: LimX has its own end-to-end system (FluxVLA / OpenPI, pi0/pi0.5) that skips all this and goes straight from image+text to motion. Not using that here on purpose — it can't guarantee a safe stand-off distance the way this step-by-step version can. Worth knowing about for other projects though: [Isaac Sim, Isaac Lab & FluxVLA Training](../software/isaac-sim-training.md).
 
 ---
