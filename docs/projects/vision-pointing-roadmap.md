@@ -57,7 +57,7 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Open the scene — it should load with no missing-file errors.
 - [x] Check the robot has all its expected joints/links, and that the **Articulation Root** is set. (If this is wrong, the robot will look fine but physics silently won't work)
 
-[Phase 1.1 – Robot Import & Initial Scene Setup](../../assets/Results_Project_Cube/1-1-robot-import-initial-scene-setup.md)
+[Phase 1.1 – Robot Import & Initial Scene Setup](../assets/Results_Project_Cube/1-1-robot-import-initial-scene-setup.md)
 
 #### 1.2 — Confirm you know which joint is which
 
