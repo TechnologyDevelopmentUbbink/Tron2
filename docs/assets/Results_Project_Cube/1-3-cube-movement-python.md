@@ -44,18 +44,17 @@ The Python code for this experiment is stored in this file.
 
 ## Important
 
-> [!WARNING]
-> **Never use `time.sleep()` inside Isaac Sim Python scripts.**
->
-> `time.sleep()` blocks Isaac Sim's main update loop and will cause the simulator to freeze or become unresponsive while the script is running.
->
-> Instead, always wait asynchronously by yielding control back to Isaac Sim:
->
-> ```python
-> await omni.kit.app.get_app().next_update_async()
-> ```
->
-> The `wait_seconds()` function used in the script below implements this correctly.
+!!! warning "Never use `time.sleep()`"
+
+    `time.sleep()` blocks Isaac Sim's main update loop and will cause the simulator to freeze or become unresponsive while the script is running.
+
+    Instead, always wait asynchronously by yielding control back to Isaac Sim:
+
+    ```python
+    await omni.kit.app.get_app().next_update_async()
+    ```
+
+    The `wait_seconds()` function used in the script below implements this correctly.
 
 ---
 
