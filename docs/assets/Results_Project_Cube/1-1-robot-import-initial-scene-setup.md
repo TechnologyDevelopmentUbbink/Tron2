@@ -95,7 +95,7 @@ Light: Grey Studio
 
 ## Figure
 
-
+![Step 1.1 in Isaac Sim](../../assets/images/1.1Figure.png)
 
 ---
 
