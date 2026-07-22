@@ -65,6 +65,8 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Move the cube by typing in numbers (not just dragging it) — confirm you can do this.
 - [x] Pick one clear point on the arm that counts as "where it's pointing from" (e.g. gripper centre) and write down why you picked it.
 
+[Phase 1.2 – Robot reference Cube](../assets/Results_Project_Cube/1-2-robot-inspection-reference-scene.md)
+
 #### 1.3 — Read the cube's position and print it (still no motion)
 
 - [ ] Write a small script that only reads the cube's `[x,y,z]` and prints it. Nothing moves yet.
