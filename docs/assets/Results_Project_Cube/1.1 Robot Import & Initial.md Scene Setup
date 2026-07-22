@@ -1,0 +1,143 @@
+---
+title: Phase 1.1 – Robot Import & Initial Scene Setup
+---
+
+
+| | |
+|---|---|
+| **Author** | Arjen van Dijk |
+| **Date** | 22-07-2026 |
+| **Operating System** | Ubuntu 24.04 |
+| **Isaac Sim** | 6.0.1 |
+| **Hardware** | NVIDIA GB10 Grace Blackwell Superchip |
+
+---
+
+## Objective
+
+Import the correct TRON 2 robot model into Isaac Sim, verify that the USD loads correctly, create a clean baseline scene and save it for the remainder of the project.
+
+---
+
+## Robot Source
+
+**Repository**
+
+`limxdynamics/robot-description`
+
+**Robot Variant**
+
+`DACH_TRON 2A`
+
+**USD File**
+
+`Home/Tron2/robot-description/tron2/DACH_TRON 2A/usd/robot.usd`
+
+---
+
+## Work Performed
+
+The robot model was imported successfully into Isaac Sim without any missing USD references or asset errors.
+
+The imported model already contained a correctly configured **Articulation Root**, so no modifications were required before enabling physics.
+
+A Ground Plane was added using:
+
+`Create → Physics → Ground Plane`
+
+Two OmniPBR materials were created.
+
+- One material was assigned to the robot.
+- One material was assigned to the Ground Plane.
+
+The robot material was applied to the top robot prim using **Stronger Than Descendants**, allowing the complete robot to receive the new colour.
+
+The robot was initially positioned at:
+
+```
+X = 0
+Y = 0
+Z = 1.3
+```
+
+This allows the robot to settle naturally onto the Ground Plane when physics starts.
+
+The complete scene was saved as the baseline project for all future experiments.
+
+---
+
+## Findings
+
+The robot imported successfully without requiring modifications to the articulation.
+
+The complete joint hierarchy is present inside the Stage Tree.
+
+All joints and links appear to be correctly named.
+
+No missing assets or import warnings were encountered.
+
+The imported model is immediately usable for simulation.
+
+---
+
+## Performance
+
+Renderer:
+
+RTX Real-Time 2.0
+
+Approximate Performance:
+
+~40 FPS
+
+Post Processing:
+
+Enabled
+
+Ray Tracing:
+
+Enabled
+
+Performance is more than sufficient for interactive development.
+
+---
+
+## Figures
+
+**Figure 1**
+
+Overall Isaac Sim scene after import.
+
+*(Insert screenshot of the complete Isaac window.)*
+
+---
+
+**Figure 2**
+
+Stage hierarchy showing the imported robot.
+
+*(Insert screenshot of the Stage Tree.)*
+
+---
+
+**Figure 3**
+
+Robot materials.
+
+*(Insert screenshot of the OmniPBR material setup.)*
+
+---
+
+## Lessons Learned
+
+The robot-description repository provides a well-prepared USD model that imports directly into Isaac Sim.
+
+Only minimal scene setup was required before beginning development.
+
+Saving a clean baseline project at this stage prevents repeating the import process during later experiments.
+
+---
+
+## Next Step
+
+Continue with **Phase 1.2 – Robot Inspection & Reference Scene**.
