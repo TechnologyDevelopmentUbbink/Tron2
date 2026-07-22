@@ -53,15 +53,15 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 
 #### 1.1 — Get the robot model into a working Isaac Sim project
 
-- [ ] Clone `limxdynamics/robot-description`, pick the TRON 2 variant that matches your actual hardware (dual-arm/desktop). See linked page above for exact steps.
-- [ ] Open the scene — it should load with no missing-file errors.
-- [ ] Check the robot has all its expected joints/links, and that the **Articulation Root** is set. (If this is wrong, the robot will look fine but physics silently won't work)
+- [x] Clone `limxdynamics/robot-description`, pick the TRON 2 variant that matches your actual hardware (dual-arm/desktop). See linked page above for exact steps.
+- [x] Open the scene — it should load with no missing-file errors.
+- [x] Check the robot has all its expected joints/links, and that the **Articulation Root** is set. (If this is wrong, the robot will look fine but physics silently won't work)
 
 #### 1.2 — Confirm you know which joint is which
 
-- [ ] Write down which joint name in the model = which real joint (left arm, right arm, which DOF, in what order).
-- [ ] Move the cube by typing in numbers (not just dragging it) — confirm you can do this.
-- [ ] Pick one clear point on the arm that counts as "where it's pointing from" (e.g. gripper centre) and write down why you picked it.
+- [x] Write down which joint name in the model = which real joint (left arm, right arm, which DOF, in what order).
+- [x] Move the cube by typing in numbers (not just dragging it) — confirm you can do this.
+- [x] Pick one clear point on the arm that counts as "where it's pointing from" (e.g. gripper centre) and write down why you picked it.
 
 #### 1.3 — Read the cube's position and print it (still no motion)
 
