@@ -63,6 +63,8 @@ copyright: Engineering documentation — Technology Development Ubbink
 
 nav:
   - Home: index.md
+  - Projects:
+    - Vision-to-Pointing Roadmap: projects/vision-pointing-roadmap.md
   - Robot Guide:
       - Start Here: getting-started/index.md
       - Safety: getting-started/safety.md
