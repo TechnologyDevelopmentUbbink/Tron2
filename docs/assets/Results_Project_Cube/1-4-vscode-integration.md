@@ -81,6 +81,10 @@ Copy the following script into the file.
 
     [move_cube.py](../../assets/code/move_cube.py)
 
+```python
+    --8<-- "assets/code/move_cube.py"
+```
+
 
 ```python
 import asyncio
