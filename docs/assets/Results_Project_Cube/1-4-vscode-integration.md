@@ -76,6 +76,13 @@ Create a new file:
 
 Copy the following script into the file.
 
+
+??? example "move_cube.py"
+
+    ```python
+    --8<-- "../../assets/code/move_cube.py"
+    ```
+
 ```python
 import asyncio
 import omni.kit.app
