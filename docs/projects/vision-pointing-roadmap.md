@@ -74,10 +74,15 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 
 [Phase 1.3 – Cube movement](../assets/Results_Project_Cube/1-3-cube-movement-python.md)
 
-#### 1.4 — Convert cube position to "relative to the robot"
+#### 1.4 — VS Code & Extension Integration
 
-- [ ] Convert the cube's world position into "position relative to the robot's base."
-- [ ] Check it by hand: put the cube a known distance in front of the robot (e.g. 30 cm), confirm the converted number roughly says 30 cm.
+- [x] Enable the Isaac Sim VS Code integration.
+- [x] Develop and execute Python scripts directly from VS Code.
+- [x] Generate the initial Isaac Sim extension project.
+- [ ] Configure the extension to automatically start and stop with the simulation.
+
+[Phase 1.4 – Extention intergration](../assets/Results_Project_Cube/1-4-vscode-integration.md)
+
 
 #### 1.5 — Work out where the arm should point to
 
