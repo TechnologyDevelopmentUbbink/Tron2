@@ -83,45 +83,6 @@ Copy the following script into the file.
     --8<-- "assets/code/move_cube.py"
     ```
 
-
-
-```python
-import asyncio
-import omni.kit.app
-
-from isaacsim.core.experimental.prims import XformPrim
-
-cube = XformPrim("/World/Cube")
-
-POSITIONS = [
-    [0.5, -1.5, 0.1],
-    [2.0, -1.5, 0.1],
-    [2.0,  1.5, 0.1],
-    [0.5,  1.5, 2.0],
-    [1.0,  0.8, 0.1],
-]
-
-
-async def wait_seconds(seconds):
-    app = omni.kit.app.get_app()
-    start = asyncio.get_running_loop().time()
-
-    while asyncio.get_running_loop().time() - start < seconds:
-        await app.next_update_async()
-
-
-async def move_cube():
-    for i, position in enumerate(POSITIONS, start=1):
-        cube.set_world_poses(positions=[position])
-        print(f"Position {i}/5: {position}")
-        await wait_seconds(5)
-
-    print("Finished moving cube.")
-
-
-asyncio.ensure_future(move_cube())
-```
-
 Save the file.
 
 ---
@@ -168,7 +129,7 @@ Fill in the following values.
 | **Extension Title** | `Script_starting` |
 | **Description** | `This script starts all other scripts.` |
 
-Note:
+**Note:**
 The extension must be generated inside its own dedicated folder (for example Script_starting_extension). Generating it directly into your general development directory may prevent Isaac Sim from loading the extension correctly.
 
 Click:
@@ -201,5 +162,55 @@ README.md
 ```
 
 This project will be used as the foundation for creating a controller that automatically starts when the simulation begins and stops when the simulation ends.
+These files are aready filled with a example project and need to be altered for our controller.
 
 ---
+
+Navigate to: 
+```text
+/home/spark-ubbink/Desktop/Python vs code/Script_starting_extension/Script_starting_python
+```
+Two files need to be changed, and one file needs to be added, within this folder.
+
+---
+
+Open:
+```text
+ui_builder.py
+```
+replace it with:
+
+??? note "ui_builder.py"
+
+    ```python
+    --8<-- "assets/code/ui_builder.py"
+    ```
+
+---
+
+Open:
+```text
+scenario.py
+```
+replace it with:
+
+??? note "scenario.py"
+
+    ```python
+    --8<-- "assets/code/scenario.py"
+    ```
+
+---
+
+Add in the same folder saved as:
+```text
+cube_demo.py
+```
+
+??? note "scenario.py"
+
+    ```python
+    --8<-- "assets/code/cube_demo.py"
+    ```
+
+    
