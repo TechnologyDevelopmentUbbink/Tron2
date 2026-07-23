@@ -155,9 +155,12 @@ Fill in the following values.
 
 | Field | Value |
 |------|------|
-| **Extension Path** | `/home/spark-ubbink/Desktop/Python vs code` |
+| **Extension Path** | `/home/spark-ubbink/Desktop/Python vs code/Script_starting_extension` |
 | **Extension Title** | `Script_starting` |
 | **Description** | `This script starts all other scripts.` |
+
+Note:
+The extension must be generated inside its own dedicated folder (for example Script_starting_extension). Generating it directly into your general development directory may prevent Isaac Sim from loading the extension correctly.
 
 Click:
 
