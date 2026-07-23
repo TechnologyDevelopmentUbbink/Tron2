@@ -162,11 +162,11 @@ README.md
 ```
 
 This project will be used as the foundation for creating a controller that automatically starts when the simulation begins and stops when the simulation ends.
-These files are aready filled with a example project and need to be altered for our controller.
+These files are already filled with an example project and need to be altered for our controller.
 
 ---
 
-Navigate to: 
+Navigate to:
 ```text
 /home/spark-ubbink/Desktop/Python vs code/Script_starting_extension/Script_starting_python
 ```
@@ -178,13 +178,13 @@ Open:
 ```text
 ui_builder.py
 ```
-replace it with:
+Replace it with:
 
 ??? note "ui_builder.py"
 
-    ```python
+```python
     --8<-- "assets/code/ui_builder.py"
-    ```
+```
 
 ---
 
@@ -192,25 +192,65 @@ Open:
 ```text
 scenario.py
 ```
-replace it with:
+Replace it with:
 
 ??? note "scenario.py"
 
-    ```python
+```python
     --8<-- "assets/code/scenario.py"
-    ```
+```
 
 ---
 
-Add in the same folder saved as:
+Add a new file to the same folder, saved as:
 ```text
 cube_demo.py
 ```
 
-??? note "scenario.py"
+??? note "cube_demo.py"
 
-    ```python
+```python
     --8<-- "assets/code/cube_demo.py"
-    ```
+```
 
-    
+---
+
+We have now generated and built our own extension for Isaac Sim.
+The next step is to point Isaac Sim to its location.
+
+---
+
+Open **Isaac Sim**.
+
+Navigate to:
+
+```text
+Window → Extensions → Hamburger Icon → Settings
+```
+
+A window with Extension Search Paths should appear. Add our new extension path here.
+
+Add the following path:
+
+```text
+/home/spark-ubbink/Desktop/Python vs code
+```
+
+![Point to path](../../assets/images/1.43Figure.png)
+
+---
+
+After adding the path, a new THIRD PARTY extension should appear. Activate it.
+
+![Point to path](../../assets/images/1.44Figure.png)
+
+---
+
+Close the extensions menu. A new item has appeared in the top bar:
+
+```text
+Script_starting
+```
+
+Clicking on it opens our own TRON2 Controller dashboard. From here, `cube_demo.py` can be toggled.
+This script will now autostart when the simulation starts, and stop together with the simulation.
