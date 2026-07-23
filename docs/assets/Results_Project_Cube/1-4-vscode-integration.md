@@ -79,11 +79,10 @@ Copy the following script into the file.
 
 ??? note "move_cube.py"
 
-    [move_cube.py](../../assets/code/move_cube.py)
-
-```python
+    ```python
     --8<-- "assets/code/move_cube.py"
-```
+    ```
+
 
 
 ```python
