@@ -182,9 +182,9 @@ Replace it with:
 
 ??? note "ui_builder.py"
 
-```python
-    --8<-- "assets/code/ui_builder.py"
-```
+    ```python
+        --8<-- "assets/code/ui_builder.py"
+    ```
 
 ---
 
@@ -196,9 +196,9 @@ Replace it with:
 
 ??? note "scenario.py"
 
-```python
-    --8<-- "assets/code/scenario.py"
-```
+    ```python
+        --8<-- "assets/code/scenario.py"
+    ```
 
 ---
 
@@ -209,9 +209,9 @@ cube_demo.py
 
 ??? note "cube_demo.py"
 
-```python
-    --8<-- "assets/code/cube_demo.py"
-```
+    ```python
+        --8<-- "assets/code/cube_demo.py"
+    ```
 
 ---
 
