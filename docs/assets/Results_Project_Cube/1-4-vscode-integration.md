@@ -77,9 +77,9 @@ Create a new file:
 Copy the following script into the file.
 
 
-??? example "move_cube.py"
+??? note "move_cube.py"
 
-    --8<-- "../../assets/code/move_cube.py"
+    [move_cube.py](../../assets/code/move_cube.py)
 
 
 ```python
