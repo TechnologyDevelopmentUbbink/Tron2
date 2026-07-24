@@ -79,7 +79,7 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Enable the Isaac Sim VS Code integration.
 - [x] Develop and execute Python scripts directly from VS Code.
 - [x] Generate the initial Isaac Sim extension project.
-- [ ] Configure the extension to automatically start and stop with the simulation.
+- [x] Configure the extension to automatically start and stop with the simulation.
 
 [Phase 1.4 – Extention intergration](../assets/Results_Project_Cube/1-4-vscode-integration.md)
 
