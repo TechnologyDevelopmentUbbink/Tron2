@@ -7,34 +7,34 @@ hide:
 
 Practical, searchable documentation for the LimX Dynamics TRON 2 — based on official manuals, public model repositories, and hands-on Ubbink verification.
 
-!!! warning "Documentation in review"
-
-    This wiki summarizes source material; it does not replace the current official manual or approved safety instructions. Check the source and applicable robot configuration before acting.
-
 <div class="tron-doors" markdown>
 
-<a class="tron-door" href="getting-started/index.md" markdown>
-<span class="tron-door__title">Hardware Specs</span>
-<p class="tron-door__desc">The manual. Robot, controller, VR, batteries, sensors, startup/shutdown, e‑stop.</p>
-<span class="tron-door__cta">Start here to set up or operate something →</span>
-</a>
+<div class="tron-door" markdown>
+### [Hardware Specs](getting-started/index.md)
 
-<a class="tron-door" href="software/index.md" markdown>
-<span class="tron-door__title">Software Dev</span>
-<p class="tron-door__desc">SDK, ROS, Isaac Sim, FluxVLA training and deployment — plus our own discoveries.</p>
-<span class="tron-door__cta">Start here to build or debug something →</span>
-</a>
+The manual. Robot, controller, VR, batteries, sensors, startup/shutdown, e‑stop.
+
+**[Start here to set up or operate something →](getting-started/index.md)**
+</div>
+
+<div class="tron-door" markdown>
+### [Software Dev](software/index.md)
+
+SDK, ROS, Isaac Sim, FluxVLA training and deployment — plus our own discoveries.
+
+**[Start here to build or debug something →](software/index.md)**
+</div>
 
 </div>
 
 <div class="tron-issues" markdown>
-<p class="tron-issues__title">Known issues — quick lookup</p>
+### Known issues — quick lookup
 
 [bf16 crash on GB10 (JAX / Blackwell)](known-issues/jax-bf16-gb10.md)
 [FluxVLA vs tron2_openpi checkpoints aren't compatible](known-issues/checkpoint-format-mismatch.md)
 [rospy.init_node() ordering breaks the Bridge](known-issues/ros-bridge-init-order.md)
 
-<p class="tron-issues__more"><a href="known-issues/index.md">See all known issues →</a></p>
+**[See all known issues →](known-issues/index.md)**
 </div>
 
 <div class="tron-card-grid tron-card-grid--compact" markdown>
