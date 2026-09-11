@@ -12,15 +12,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: light blue
+      primary: indigo
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: light blue
+      primary: black
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -30,6 +30,9 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
     - toc.follow
     - search.suggest
     - search.highlight
@@ -38,6 +41,7 @@ theme:
 
 plugins:
   - search
+  - tags
 
 markdown_extensions:
   - admonition
@@ -64,9 +68,7 @@ copyright: Engineering documentation — Technology Development Ubbink
 
 nav:
   - Home: index.md
-  - Projects:
-    - Vision-to-Pointing Roadmap: projects/vision-pointing-roadmap.md
-  - Robot Guide:
+  - Hardware Specs:
       - Start Here: getting-started/index.md
       - Safety: getting-started/safety.md
       - Robot Overview: hardware/robot-overview.md
@@ -78,7 +80,7 @@ nav:
       - Startup: operation/startup.md
       - Shutdown: operation/shutdown.md
       - Emergency Stop: operation/emergency-stop.md
-  - Development:
+  - Software Dev:
       - SDK Overview: software/index.md
       - Installation: software/installation.md
       - Firmware: software/firmware.md
@@ -89,6 +91,12 @@ nav:
       - C++ API: programming/cpp.md
       - Python API: programming/python.md
       - High-level API: programming/api-reference.md
+      - Vision-to-Pointing Roadmap: projects/vision-pointing-roadmap.md
+      - Known Issues:
+          - Overview: known-issues/index.md
+          - "bf16 crash on GB10 (JAX/Blackwell)": known-issues/jax-bf16-gb10.md
+          - "FluxVLA vs tron2_openpi checkpoints": known-issues/checkpoint-format-mismatch.md
+          - "ROS bridge init order": known-issues/ros-bridge-init-order.md
   - Troubleshooting: troubleshooting/index.md
   - Reference:
       - Specifications: reference/specifications.md
