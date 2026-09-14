@@ -1,6 +1,7 @@
 ---
 hide:
   - toc
+  - navigation
 ---
 
 <div class="tron-hero" markdown>
@@ -32,7 +33,7 @@ Our discoveries. FluxVLA, Isaac Sim, training, deployment.
 </div>
 
 <div class="tron-issues" markdown>
-<p class="tron-issues__title">:material-lightbulb-on-outline:{ .tron-issues__icon } Known issues, quick lookup</p>
+:material-lightbulb-on-outline:{ .tron-issues__icon } **Known issues, quick lookup**
 
 [bf16 crash on GB10 (JAX / Blackwell)](known-issues/jax-bf16-gb10.md)
 [FluxVLA vs tron2_openpi checkpoints aren't compatible](known-issues/checkpoint-format-mismatch.md)
@@ -42,5 +43,5 @@ Our discoveries. FluxVLA, Isaac Sim, training, deployment.
 </div>
 
 <div class="tron-search" markdown>
-<button type="button" class="tron-search__button" id="tron-search-trigger">:material-magnify:{ .tron-search__icon } <span>Search the wiki…</span></button>
+<input type="text" class="tron-search__input" id="tron-search-trigger" placeholder="Search the wiki…" autocomplete="off">
 </div>
