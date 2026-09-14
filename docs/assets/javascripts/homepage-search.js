@@ -5,13 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!trigger || !toggle || !realInput) return;
 
+  // The homepage box never holds its own text or its own search logic —
+  // it only opens Material's real search and hands it keyboard focus.
+  trigger.readOnly = true;
+
   function openRealSearch() {
     toggle.checked = true;
-    window.setTimeout(function () {
-      realInput.focus();
-    }, 60);
+    realInput.focus();
   }
 
+  trigger.addEventListener("mousedown", function (event) {
+    event.preventDefault(); // stop the readonly field from taking focus itself
+    openRealSearch();
+  });
+
   trigger.addEventListener("focus", openRealSearch);
-  trigger.addEventListener("click", openRealSearch);
 });
