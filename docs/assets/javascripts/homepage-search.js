@@ -1,18 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   var trigger = document.getElementById("tron-search-trigger");
-  if (!trigger) return;
+  var toggle = document.querySelector('[data-md-toggle="search"]');
+  var realInput = document.querySelector(".md-search__input");
 
-  trigger.addEventListener("click", function () {
-    var toggle = document.querySelector('[data-md-toggle="search"]');
-    if (toggle) {
-      toggle.checked = true;
-      toggle.dispatchEvent(new Event("change"));
-    }
-    var input = document.querySelector(".md-search__input");
-    if (input) {
-      window.setTimeout(function () {
-        input.focus();
-      }, 50);
-    }
-  });
+  if (!trigger || !toggle || !realInput) return;
+
+  function openRealSearch() {
+    toggle.checked = true;
+    window.setTimeout(function () {
+      realInput.focus();
+    }, 60);
+  }
+
+  trigger.addEventListener("focus", openRealSearch);
+  trigger.addEventListener("click", openRealSearch);
 });
