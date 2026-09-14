@@ -37,7 +37,41 @@
   .wiki-facts { float: none; width: 100%; margin: 0 0 1rem; }
 }
 
-/* ---- Homepage "doors": Hardware Specs / Software Dev ---- */
+/* ================================================================
+   Custom "graphite" palette — dark mode is a warm charcoal,
+   never pure black. Light mode stays close to Material default.
+   ================================================================ */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #1a1c22;
+  --md-default-fg-color: #eceef2;
+  --md-primary-fg-color: #1a1c22;
+  --md-primary-bg-color: #eceef2;
+}
+
+/* ---- Hero header ---- */
+.tron-hero {
+  text-align: center;
+  margin: 1.5rem 0 2rem;
+}
+
+.tron-hero__eyebrow {
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 .25rem;
+}
+
+.tron-hero h1 {
+  margin: 0;
+  font-size: 2.1rem;
+}
+
+.tron-hero__subtitle {
+  margin: .4rem 0 0;
+  color: var(--md-default-fg-color--light);
+  font-size: .95rem;
+}
+
+/* ---- Homepage doors: Hardware Specs / Software Dev ---- */
 .tron-doors {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -46,50 +80,53 @@
 }
 
 .tron-door {
-  display: block;
-  padding: 1.5rem 1.5rem 1.25rem;
+  position: relative;
+  padding: 1.5rem;
   border-radius: 14px;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  background: var(--md-default-bg-color);
-  text-decoration: none !important;
-  color: var(--md-default-fg-color) !important;
-  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform .15s ease, background .15s ease;
+}
+
+[data-md-color-scheme="default"] .tron-door {
+  background: rgba(0, 0, 0, 0.035);
 }
 
 .tron-door:hover {
-  border-color: var(--md-accent-fg-color);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="default"] .tron-door:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.tron-door__icon {
+  font-size: 1.6rem;
+  color: var(--md-accent-fg-color);
 }
 
 .tron-door h3 {
-  margin: 0 0 .5rem;
-  font-size: 1.3rem;
+  margin: .5rem 0 .4rem;
+  font-size: 1.25rem;
 }
 
 .tron-door h3 a {
-  color: var(--md-accent-fg-color) !important;
+  color: var(--md-default-fg-color) !important;
   text-decoration: none !important;
+}
+
+/* Stretched link: the whole card becomes clickable, not just the title */
+.tron-door h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .tron-door p {
   font-size: .9rem;
   color: var(--md-default-fg-color--light);
-  margin: 0 0 .75rem;
+  margin: 0;
   line-height: 1.5;
-}
-
-.tron-door p a,
-.tron-door p a:hover {
-  color: inherit !important;
-  text-decoration: none !important;
-  font-weight: 400 !important;
-}
-
-.tron-door strong a {
-  font-size: .8rem;
-  color: var(--md-default-fg-color--light) !important;
-  text-decoration: none !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -98,18 +135,21 @@
   }
 }
 
-/* ---- Known issues quick-lookup strip ---- */
+/* ---- Known issues: plain list, no card/box around it ---- */
 .tron-issues {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  background: var(--md-code-bg-color);
+  margin: 1.75rem 0;
 }
 
-.tron-issues h3 {
+.tron-issues__title {
+  font-weight: 700;
   margin: 0 0 .6rem;
-  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.tron-issues__icon {
+  color: var(--md-accent-fg-color);
 }
 
 .tron-issues > p > a {
@@ -125,18 +165,45 @@
   color: var(--md-accent-fg-color) !important;
 }
 
-.tron-issues p:last-child {
-  margin: .5rem 0 0;
-}
-
 .tron-issues p:last-child a {
   border-bottom: none;
   font-weight: 600;
   padding: .25rem 0 0;
-  text-decoration: none !important;
-  color: var(--md-default-fg-color) !important;
 }
 
-.tron-issues p:last-child a:hover {
-  color: var(--md-accent-fg-color) !important;
+/* ---- Fake search box that opens Material's real search overlay ---- */
+.tron-search {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.tron-search__button {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--md-default-fg-color--light);
+  font-size: .9rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+[data-md-color-scheme="default"] .tron-search__button {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+.tron-search__button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="default"] .tron-search__button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.tron-search__icon {
+  color: var(--md-default-fg-color--light);
 }
