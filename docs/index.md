@@ -3,32 +3,40 @@ hide:
   - toc
 ---
 
+<div class="tron-hero" markdown>
+<p class="tron-hero__eyebrow">Technology Development Ubbink</p>
+
 # TRON 2 knowledge base
 
-Practical, searchable documentation for the LimX Dynamics TRON 2 — based on official manuals, public model repositories, and hands-on Ubbink verification.
+<p class="tron-hero__subtitle">Pick where you're headed</p>
+</div>
+
+!!! warning "Documentation in review"
+
+    This wiki summarizes source material; it does not replace the current official manual or approved safety instructions. Check the source and applicable robot configuration before acting.
 
 <div class="tron-doors" markdown>
 
 <div class="tron-door" markdown>
+:material-chip:{ .tron-door__icon }
+
 ### [Hardware Specs](getting-started/index.md)
 
-The manual. Robot, controller, VR, batteries, sensors, startup/shutdown, e‑stop.
-
-**[Start here to set up or operate something →](getting-started/index.md)**
+The manual. Robot, controller, DGX Spark, network, firmware.
 </div>
 
 <div class="tron-door" markdown>
+:material-code-tags:{ .tron-door__icon }
+
 ### [Software Dev](software/index.md)
 
-SDK, ROS, Isaac Sim, FluxVLA training and deployment — plus our own discoveries.
-
-**[Start here to build or debug something →](software/index.md)**
+Our discoveries. FluxVLA, Isaac Sim, training, deployment.
 </div>
 
 </div>
 
 <div class="tron-issues" markdown>
-### Known issues — quick lookup
+<p class="tron-issues__title">:material-lightbulb-on-outline:{ .tron-issues__icon } Known issues, quick lookup</p>
 
 [bf16 crash on GB10 (JAX / Blackwell)](known-issues/jax-bf16-gb10.md)
 [FluxVLA vs tron2_openpi checkpoints aren't compatible](known-issues/checkpoint-format-mismatch.md)
@@ -37,36 +45,6 @@ SDK, ROS, Isaac Sim, FluxVLA training and deployment — plus our own discoverie
 **[See all known issues →](known-issues/index.md)**
 </div>
 
-<div class="tron-card-grid tron-card-grid--compact" markdown>
-
-<div class="tron-card" markdown>
-### [Operate](operation/index.md)
-Startup, shutdown, emergency stop, handheld control, and VR teleoperation.
+<div class="tron-search" markdown>
+<button type="button" class="tron-search__button" id="tron-search-trigger">:material-magnify:{ .tron-search__icon } <span>Search the wiki…</span></button>
 </div>
-
-<div class="tron-card" markdown>
-### [Diagnose](troubleshooting/index.md)
-Safe first checks and the information to collect before escalation.
-</div>
-
-<div class="tron-card" markdown>
-### [Reference](reference/specifications.md)
-Specifications, system architecture, terminology, and command reference.
-</div>
-
-<div class="tron-card" markdown>
-### [Contribute](contributing/index.md)
-How to edit pages, add images, and get changes reviewed.
-</div>
-
-</div>
-
-## Source status
-
-| Source | Coverage | Wiki status |
-| --- | --- | --- |
-| TRON 2 User Manual, EDU edition, v0.1 | Hardware, operation, controller, VR, networking | Summarized; Ubbink verification pending |
-| TRON 2 SDK Development Guide, v0.5 | Low/high-level APIs, software, upgrade references | Core structure imported |
-| `limx-tron2/robot-description` | URDF, Xacro, MuJoCo, meshes, model variants | Repository structure documented |
-
-See [Document sources](reference/document-sources.md) for versions, scope, and redistribution notes.
