@@ -11,10 +11,6 @@ hide:
 <p class="tron-hero__subtitle">Pick where you're headed</p>
 </div>
 
-!!! warning "Documentation in review"
-
-    This wiki summarizes source material; it does not replace the current official manual or approved safety instructions. Check the source and applicable robot configuration before acting.
-
 <div class="tron-doors" markdown>
 
 <div class="tron-door" markdown>
