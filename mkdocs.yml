@@ -111,11 +111,4 @@ nav:
       - Command Reference: reference/command-reference.md
       - Document Sources: reference/document-sources.md
       - Revision History: reference/revision-history.md
-  - Contributing:
-      - contributing/index.md
-      - Editing Pages: contributing/editing-pages.md
-      - Adding Images: contributing/adding-images.md
-      - Writing Style: contributing/writing-style.md
-      - Source Classification: contributing/source-classification.md
-      - Review Process: contributing/review-process.md
-      - Documentation Versioning: contributing/versioning.md
+  - Contributing: contributing/index.md
