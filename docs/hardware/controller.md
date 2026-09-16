@@ -47,7 +47,8 @@ The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. 
 | Purpose | Input | Required state |
 | --- | --- | --- |
 | Start teleoperation / establish initial zero | Hold both grip buttons for more than 1 s | Robot in VR teleoperation mode |
-| Return arms to initial zero | Hold both grip buttons for more than 1 s | Active teleoperation |
+| Return arms to initial zero | Hold both `X` & `A` for more than 1 s | Active teleoperation |
+| Reset camera to initial zero | Hold both `inside buttons` for more than 1 s | Active teleoperation |
 | Move end effectors | Move the held VR controllers | Initial-zero or active teleoperation state |
 | Pause/resume left arm | Left-controller `X` | Initial-zero or active teleoperation state |
 | Pause/resume right arm | Right-controller `A` | Initial-zero or active teleoperation state |
