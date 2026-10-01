@@ -13,4 +13,4 @@
 - `robot-description` variants and commit
 - Robot firmware and application versions
 
-Documentation versioning is described in [Documentation Versioning](../contributing/versioning.md).
+<!--Documentation versioning is described in [Documentation Versioning](../contributing/versioning.md). -->
