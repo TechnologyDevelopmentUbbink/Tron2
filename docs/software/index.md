@@ -1,35 +1,80 @@
-# SDK and software
+---
+hide:
+  - toc
+---
 
-The official SDK guide exposes two development layers.
+<div class="wiki-header" markdown>
 
-| Layer | Purpose | Typical interfaces |
-| --- | --- | --- |
-| Low-level motion control | Develop and deploy motion-control algorithms in simulation or on hardware | C++/Python singleton, initialization, motor count, IMU/state subscriptions, command publication, controller and diagnostics callbacks, light effects |
-| High-level application | Build applications on top of LimX-provided motion behavior | Dual-arm movement/state, emergency stop, light effects, grippers, robot management, and configuration-specific actions |
+<p class="wiki-eyebrow">TRON 2 / SOFTWARE</p>
 
-!!! warning "Developer mode can command real hardware"
+# Software & learning
 
-    Confirm simulation versus hardware, the robot model, command limits, and stop path before initializing an SDK connection. Example code is not an operating procedure.
+Choose the part of the workflow you are working on. The SDK, simulation, LeRobot and LimX/OpenPI routes remain active.
 
-## Supported environments described by the SDK guide
+</div>
 
-- Linux x86-64
-- Linux AArch64
-- Windows (Python wheel in the public low-level SDK repository)
-- ROS 1, ROS 2, and non-ROS use through the low-level API
+<div class="wiki-grid" markdown>
 
-## Start here
+<div class="wiki-tile" markdown>
 
-1. [Identify the robot and model assets](../hardware/robot-overview.md).
-2. Choose [C++](../programming/cpp.md) or [Python](../programming/python.md) and follow the matching official package instructions.
-3. Review the [high-level API map](../programming/api-reference.md).
-4. Record exact firmware, SDK, ROS, and model versions in [Version compatibility](version-compatibility.md).
+:tron-development:{ .wiki-tile__icon }
 
-## Official public repositories
+### [Development](development.md)
 
-- [limxsdk-lowlevel](https://github.com/limxdynamics/limxsdk-lowlevel)
-- [TRON 2 robot-description](https://github.com/limx-tron2/robot-description)
+SDKs, Python/C++, networking and ROS bridges.
 
-## Source
+</div>
 
-LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, dated 13 January 2026 with cover identifier 20260225, sections 1–3.
+<div class="wiki-tile" markdown>
+
+:tron-simulation:{ .wiki-tile__icon }
+
+### [Simulation & FluxVLA](../simulation/index.md)
+
+Isaac Sim, Isaac Lab, model assets and simulation teleoperation.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:tron-learning:{ .wiki-tile__icon }
+
+### [Imitation learning](../learning/index.md)
+
+Record, check, view, train and evaluate ACT or SmolVLA.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:tron-deployment:{ .wiki-tile__icon }
+
+### [Run a policy](../deployment/index.md)
+
+Policy selection, startup, rest routes and the shared client.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:material-wrench-outline:{ .wiki-tile__icon }
+
+### [Software pitfalls](../known-issues/index.md)
+
+GB10, camera, dataset, checkpoint and client problems.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:material-book-open-page-variant-outline:{ .wiki-tile__icon }
+
+### [Technical reference](../reference/index.md)
+
+Joint layouts, observations, tested versions and useful commands.
+
+</div>
+
+</div>
+
+This wiki records stable concepts, operating principles and lessons. The working robot code changes frequently and is maintained locally; this repository does not distribute the policy clients, servers or launchers. Local utility names are explained so operators recognise them, rather than presented as an installable package.

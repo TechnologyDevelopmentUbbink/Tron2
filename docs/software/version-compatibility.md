@@ -1,6 +1,6 @@
 # Version compatibility
 
-No Ubbink compatibility combination has been verified yet. Use this page as the release record before hardware testing.
+The LeRobot environment and own-model serving chain were measured on GB10 in September/October. The complete installed robot firmware/SDK/ROS inventory remains incomplete; do not treat the tested learning environment as a verified inventory of the whole robot.
 
 ## Source snapshot
 
@@ -26,3 +26,16 @@ No Ubbink compatibility combination has been verified yet. Use this page as the 
 ## Sources
 
 LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, sections 1.3 and 6; [robot-description repository](https://github.com/limx-tron2/robot-description).
+
+
+
+## Measured learning/serving combination
+
+| Context | Recorded combination | Evidence |
+| --- | --- | --- |
+| GX10 / DGX Spark learning | Ubuntu 24.04, Python 3.12.3, driver 580.173.02, LeRobot 0.6.1, torch 2.11.0+cu130, TorchCodec 0.11.1+cu130 | Decoder/GPU checks; same evaluation reproduced on Spark |
+| Own-model serving | Shared client + real SmolVLA server; three cameras, 18 state values | Mock faults and 1 October execution |
+| LimX shortcut | Newly built | Untested as of 2 October |
+| Robot calibration | No firmware/re-zero change since measurements | Owner confirmation 2 October |
+
+[Full environment table](../learning/lerobot-setup.md) · [Experiments](../projects/experiments/index.md) · [Calibration implications](firmware.md).

@@ -26,8 +26,10 @@ FluxVLA and `tron2_openpi` are two independently-implemented "dialects" of the s
 
 Don't try to load a FluxVLA checkpoint into `tron2_openpi`. Use FluxVLA's own native TRON2 deployment path instead: `Tron2InferenceRunner` (`fluxvla/engines/runners/tron2_inference_runner.py`), which talks to the robot over ROS1 rather than the OpenPI WebSocket client/server pattern. See LimX's own tutorial: `fluxvla.limxdynamics.com/zh/md_source/tutorials/inference/Tron2.html`.
 
-A key-mapping conversion script between the two formats is possible but carries real risk of silent errors — not attempted, since the native path exists and works.
+A key-mapping conversion script between the two formats is possible but carries real risk of silent errors — not attempted, since a native path is documented.
 
 **Related**
 
-- Source: build log, Aug 28 (not yet migrated into the wiki as its own page)
+- Source: August 28 investigation account; original log not included in this import.
+- The native FluxVLA path described here is distinct from the subsequently measured LeRobot deployment. [FluxVLA overview](../simulation/fluxvla.md).
+

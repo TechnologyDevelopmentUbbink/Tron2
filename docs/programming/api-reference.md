@@ -27,3 +27,11 @@ The high-level application interface uses a structured request/response protocol
 
 - [TRON 2 SDK Development Guide (online)](https://limx.cn/en/documents/856848486581276672)
 - LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, sections 3–4.
+
+
+
+## Measured runtime differences
+
+The supplied high-level guide names MoveJ/ServoJ, but a successful request is not proof of motion in every developer mode. Our measured route uses command_joints through servoj after movej was accepted without movement. State, servoj and movej also have different vector layouts.
+
+[Command layouts](../reference/joint-layouts.md) · [Mode-specific finding](../known-issues/movej-no-motion.md).

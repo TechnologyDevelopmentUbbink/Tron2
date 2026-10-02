@@ -1,6 +1,8 @@
 # TRON 2 Documentation
 
-Static MkDocs Material site and internal knowledge base for the LimX Dynamics TRON 2 robot.
+MkDocs Material knowledge base for the LimX Dynamics TRON 2 robot: hardware, software, learning, policy operation and experiment evidence.
+
+The operational robot code is actively maintained locally and is not distributed here. This repository records stable guidance, measured findings and recurring pitfalls.
 
 **Live site:** https://technologydevelopmentubbink.github.io/Tron2/
 
@@ -14,7 +16,7 @@ Static MkDocs Material site and internal knowledge base for the LimX Dynamics TR
 ## Preview locally
 
 ```powershell
-python -m pip install mkdocs mkdocs-material
+python -m pip install --requirement requirements-docs.txt
 python -m mkdocs serve
 ```
 
@@ -27,3 +29,4 @@ python -m mkdocs build --strict
 ```
 
 See [Contributing](docs/contributing/index.md) for how to add or edit pages.
+

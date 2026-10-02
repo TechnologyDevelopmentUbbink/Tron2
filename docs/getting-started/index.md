@@ -20,5 +20,8 @@ Use this route before operating or developing on the TRON 2.
 | Official User Manual imported as summaries | Draft complete |
 | SDK architecture/API map | Draft complete |
 | Robot-description variants | Draft complete |
-| Ubbink hardware/configuration inventory | Not started |
-| Ubbink operational verification | Not started |
+| Complete Ubbink hardware/configuration inventory | Still incomplete; some camera and joint observations recorded |
+| Own-model execution and client fault handling | Specific September/October tests recorded; see [experiments](../projects/experiments/index.md) |
+
+
+For learning and inference, start at [Software & learning](../software/index.md). The policy session has additional [startup and stop requirements](../deployment/run-a-policy.md).

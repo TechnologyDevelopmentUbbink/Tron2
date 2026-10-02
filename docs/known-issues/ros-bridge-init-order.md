@@ -21,11 +21,12 @@ Call `BridgeObservationProvider.start()` **first**, then `rospy.init_node()` aft
 
 **Related pitfalls in the same bridge script**
 
-- `BridgeConfig(host=...)` needs the `wss://` scheme — `host='10.192.1.4'` alone silently produces no connection; must be `host='wss://10.192.1.4'`.
+- `BridgeConfig(host=...)` needs the `wss://` scheme — `host='<bridge-host>'` alone silently produces no connection; must be `host='wss://<bridge-host>'`.
 - `BridgeConfig(joint_topics={})` is required — by default the Bridge waits to align image *and* joint topics before releasing any observation, but TRON2's joint state doesn't flow through the Bridge at all (it's a separate direct robot WebSocket). Without disabling joint subscription, the aligner waits forever.
 - `get_joint_states()` returns a dict with keys `timestamp`, `robot_timestamp`, `states`, `joint_updated`, `gripper_updated` — only `states` (a flat list of 18 floats) is the actual joint data. Using `dict.values()` directly mixes in non-numeric fields and silently breaks `JointState.position`.
 - To verify the pipeline is actually working, don't trust `rospy.get_master().getSystemState()` with this lightweight `rospy` build (returns empty results even when the pipeline is fine) — subscribe to the topics directly in a second terminal and confirm messages are arriving.
 
 **Related**
 
-- Source: build log, Aug 28 (not yet migrated into the wiki as its own page)
+- Source: August 28 investigation account; original log not included in this import. [Current observation paths](../reference/observation-pipeline.md).
+

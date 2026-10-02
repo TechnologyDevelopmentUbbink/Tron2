@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" role="img" aria-labelledby="title desc">
+<title id="title">Current TRON 2 policy chain</title>
+<desc id="desc">Policy server and safety client run on the Spark. Images arrive at the client from the Edubox Bridge, and joint state arrives from the controller. The client commands the controller; the server has no direct robot connection.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#536176"/></marker></defs>
+<rect width="960" height="530" rx="18" fill="#f4f6fa"/>
+<g font-family="Arial,sans-serif" fill="#152137">
+<text x="32" y="40" font-size="22" font-weight="700">Current policy chain</text>
+<text x="32" y="65" font-size="14" fill="#536176">Measured September / October 2026 · observation, inference and command paths</text>
+<rect x="30" y="94" width="390" height="332" rx="18" fill="#e8ecf7" stroke="#b9c4df"/>
+<text x="50" y="126" font-size="18" font-weight="700">DGX Spark</text>
+<rect x="60" y="147" width="330" height="90" rx="12" fill="#fff" stroke="#94a8dc"/>
+<text x="80" y="178" font-size="18" font-weight="700">Policy server</text>
+<text x="80" y="202" font-size="14">LeRobot / OpenPI · model and action guards</text>
+<text x="80" y="222" font-size="13" fill="#536176">No direct robot connection</text>
+<rect x="60" y="285" width="330" height="110" rx="12" fill="#fff" stroke="#568e80"/>
+<text x="80" y="316" font-size="18" font-weight="700">Safety client</text>
+<text x="80" y="341" font-size="14">Align observations · action queue · watchdogs</text>
+<text x="80" y="364" font-size="14">Startup / rest route · 300 Hz servoj</text>
+<path d="M180 285V240" stroke="#536176" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+<path d="M270 240V282" stroke="#536176" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+<text x="82" y="264" font-size="12">observation</text><text x="280" y="264" font-size="12">actions</text>
+<rect x="640" y="115" width="285" height="105" rx="12" fill="#fff" stroke="#ba9463"/>
+<text x="660" y="147" font-size="18" font-weight="700">Edubox / camera Bridge</text>
+<text x="660" y="173" font-size="14">Overview + two wrist images</text>
+<text x="660" y="196" font-size="13" fill="#536176">Secure WebSocket</text>
+<rect x="640" y="285" width="285" height="110" rx="12" fill="#fff" stroke="#ba9463"/>
+<text x="660" y="317" font-size="18" font-weight="700">Robot controller</text>
+<text x="660" y="343" font-size="14">State · arms/head · separate grippers</text>
+<text x="660" y="367" font-size="13" fill="#536176">Direct control WebSocket</text>
+<path d="M640 170H515V305H393" fill="none" stroke="#536176" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="455" y="156" font-size="13">images</text>
+<path d="M640 337H393" fill="none" stroke="#536176" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="450" y="329" font-size="13">joint state · 200 Hz</text>
+<path d="M393 379H637" fill="none" stroke="#536176" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="450" y="401" font-size="13">joint + gripper targets</text>
+<rect x="30" y="453" width="895" height="52" rx="10" fill="#e2ece8"/>
+<text x="50" y="476" font-size="14" font-weight="700">Keep the client stream alive during handled faults.</text>
+<text x="50" y="494" font-size="13">Server loss: client can hold. Client stream loss: arms can drop. Nominal refresh is 3 Hz at 30 fps / s=10.</text>
+</g></svg>

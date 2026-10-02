@@ -1,27 +1,33 @@
 # Contributing
 
-How to add or edit pages in this wiki, and the status labels used throughout it.
+Write for someone trying to complete a task or avoid a previously observed failure.
 
-## Adding a page
+## Keep pages useful
 
-1. Create a lowercase, hyphen-separated `.md` file under `docs/`.
-2. Give it one `# Title` and a short intro.
-3. Add it to `mkdocs.yml`'s `nav:` section.
-4. Preview locally: `python -m mkdocs serve`, open `http://127.0.0.1:8000`.
-5. Before pushing: `python -m mkdocs build --strict` should pass with no warnings.
+Give each page one purpose, a short introduction and clear links to related topics. Procedures explain prerequisites, steps, expected results and relevant failure handling. Technical reference pages define the exact contract.
 
-Commit straight to `main` — open a PR only if you want a second pair of eyes on something. Just never commit credentials, passwords, or restricted source material.
+Store dated measurements and failed attempts under Projects / Experiments. Link to that evidence from the current topic; do not duplicate a long session report throughout the wiki. Preserve important old URLs with a short relocation page when moving content.
 
-## Status labels
+Remove empty headings, repeated filler and conversational to-do messages. Keep unknown facts explicitly unknown. Use English prose while retaining actual Dutch local command names/messages with translations.
 
-Mark technical content with how solid it is. You're already doing this in session logs (`Status: hands-on verified`) — the same idea applies to wiki pages:
+Operational code changes frequently and is not distributed here. Document stable concepts and recurring pitfalls; do not create broken links or imply that local utilities can be installed from this repo.
+
+## Evidence labels
 
 | Label | Meaning |
 | --- | --- |
-| **Official source** | Straight from LimX Dynamics docs. Note the document + version. |
-| **Ubbink verified** | Tested on our own TRON 2. |
-| **Practical observation** | Seen in use, not yet formally checked. |
-| **Unverified** | Uncertain, translated, or untested — don't rely on it for safety-critical steps. |
-| **Version dependent** | Behavior may change by firmware/SDK/ROS version — say which version you tested. |
+| Official source | Vendor claim, with revision/section |
+| Ubbink measured | Observed in the stated robot session or environment |
+| Mock tested | Tested against the described rig; not equivalent to physical verification |
+| Practical observation | Seen in use, without complete validation |
+| Built, untested | Implementation exists; operation not established |
+| Unverified / unresolved | Unknown or open investigation |
+| Version dependent | Record the tested version/date and scope |
 
-When in doubt, pick the weaker label. Stale or wrong content is worse than an honest "unverified".
+A single success does not verify an entire subsystem. Do not mark hardware, firmware or controller tables fully tested because one policy session worked.
+
+## Publishing
+
+Add the page to mkdocs.yml navigation and check every local link. Install the pinned documentation requirements, preview with python -m mkdocs serve, then run python -m mkdocs build --strict. Inspect landing pages in light/dark mode and at phone width.
+
+Changes may be committed to main after validation. Keep credentials, internal addresses, restricted manuals and private operational code out of commits. The source register explains provenance and source-file handling.

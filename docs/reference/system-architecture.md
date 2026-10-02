@@ -1,34 +1,32 @@
-# System Architecture — Hardware, Software & Communication
+# Current deployment architecture
 
-Source status: internet-sourced, unofficial. Compiled from LimX and NVIDIA public documentation; not yet Ubbink-verified.
+**Measured September/October setup:** both the policy server and the safety client run on the DGX Spark. The onboard Edubox provides camera Bridge services; robot state and commands use the controller connection.
 
-Overview of which software runs where, and how the pieces of a full TRON 2 EDU + Isaac Sim/Lab + DGX Spark setup talk to each other.
+[![Policy server, safety client, camera Bridge and robot controller](../assets/images/policy-chain.svg)](../assets/images/policy-chain.svg)
 
-![TRON 2 system architecture diagram](../assets/images/tron2-system-architecture.png)
+## Responsibilities
 
-## Components
+| Component | Responsibility |
+| --- | --- |
+| Spark policy server | Load LeRobot or OpenPI model; preprocess observations; predict and inspect actions |
+| Spark client | Select/validate policy, align observations, maintain queue, handle faults, run startup/rest route |
+| Edubox / image Bridge | Provide camera images |
+| Robot controller connection | Provide joint state; receive arm/head and separate gripper commands |
+| PICO headset | Physical teleoperation and demonstration recording |
+| Simulation workstation/Spark | Separate simulation workflows; hardware support depends on the selected stack |
 
-| Component | Role | Key software |
-|---|---|---|
-| **NVIDIA DGX Spark** | Training & inference hardware | Isaac Lab (RL training), FluxVLA (VLA training), OpenPI policy server (live inference) |
-| **Pico 4 Ultra Enterprise** | VR headset | LimX teleop-app — sends handtracking/control commands straight to the TRON2 computebox |
-| **Separate workstation** *(optional, sim-teleop only)* | RTX PRO 6000 / RTX 5090-class, **not** the DGX Spark | Isaac Sim + Isaac Lab, CloudXR Runtime (Docker) |
-| **TRON 2 EDU computebox** | Intel Core i7-1165G7, 2TB storage | LimX teleop-app receiver / Isaac Teleop client, ONNX runtime (local RL policies), OpenPI WebSocket client |
-| **TRON 2 — arms & actuators** | Motors/servos, dual-arm | No onboard "smart" software — pure actuation, receives real-time joint commands from the computebox |
-| **`robot-description` repo** | Shared files | URDF/xacro, USD (Isaac Sim), MuJoCo XML — one model used consistently across workstation, DGX Spark, and the physical robot |
+The server never communicates directly with the robot. A healthy client can hold the last target after server failure. Losing its servoj stream can drop the arms, which is why fault handling lives in the client.
 
-## Connections
+The earlier general overview and deployment proposal placed the client on the onboard computebox. That arrangement is historical; it must not overwrite the later measured placement.
 
-| # | Connection | Protocol | Notes |
-|---|---|---|---|
-| 1 | DGX Spark ↔ TRON2 computebox | WebSocket (OpenPI protocol) | Live VLA inference: robot sends camera/joint data, receives actions back |
-| 2 | Pico 4 Ultra ↔ TRON2 computebox | LimX teleop-app / local WiFi | Teleoperation directly on the physical robot — no workstation needed |
-| 3 | Pico 4 Ultra ↔ separate workstation | NVIDIA CloudXR (Docker, OpenXR) | Optional: teleoperating inside the Isaac Sim simulation instead of the real robot |
-| 4 | Separate workstation ↔ DGX Spark | Network (optional, Kubernetes) | Only relevant when scaling to multiple users/teleop sessions |
-| 5 | `robot-description` → workstation, DGX Spark, TRON2 | File import (local/git clone) | Same robot model kept consistent everywhere |
-| 6 | Computebox ↔ arms/actuators | **EtherCAT (wired)** | Real-time motor control — a fixed, physical connection inside the robot itself, not WiFi |
+## Three different jobs
 
-!!! danger "DGX Spark cannot run XR teleoperation"
-    Connections 2 and 3 are separate paths for a reason: XR/CloudXR teleoperation is not supported on the DGX Spark itself (encoding performance limitation, confirmed in current Isaac Lab docs). Simulation teleoperation with a VR headset always requires the separate RTX-class workstation (connection 3); the DGX Spark is used for training and for serving the trained policy (connection 1), not for rendering XR sessions.
+- **Physical teleoperation:** PICO talks to the robot's teleoperation service.
+- **Policy inference:** camera/state observations reach the Spark client and model server.
+- **Simulation teleoperation:** CloudXR/workstation requirements are a separate route.
 
-See [Isaac Sim, Isaac Lab & FluxVLA Training](../software/isaac-sim-training.md) for details on each path.
+Do not infer that the LimX PICO app is built on NVIDIA Isaac Teleop merely because the headset is supported by both.
+
+Continue with [Observations and playback](observation-pipeline.md), [Client safety](../deployment/client-safety.md) or the [simulation route](../simulation/index.md).
+
+**Source:** [UBB-CLIENT-001](document-sources.md), section 16.1; [UBB-POL-001](document-sources.md), section 17.8; earlier stack overview retained as a dated source.

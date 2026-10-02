@@ -1,47 +1,65 @@
 ---
 hide:
   - toc
-  - navigation
 ---
 
-<div class="tron-hero" markdown>
-<p class="tron-hero__eyebrow">Technology Development Ubbink</p>
+<div class="wiki-header" markdown>
+
+<p class="wiki-eyebrow">TRON 2 / KNOWLEDGE BASE</p>
 
 # TRON 2 knowledge base
 
-<p class="tron-hero__subtitle">Pick where you're headed</p>
-</div>
-
-<div class="tron-doors" markdown>
-
-<div class="tron-door" markdown>
-:material-chip:{ .tron-door__icon }
-
-### [Hardware Specs](getting-started/index.md)
-
-The manual. Robot, controller, DGX Spark, network, firmware.
-</div>
-
-<div class="tron-door" markdown>
-:material-code-tags:{ .tron-door__icon }
-
-### [Software Dev](software/index.md)
-
-Our discoveries. FluxVLA, Isaac Sim, training, deployment.
-</div>
+What we use, what we learned, and how to avoid the same pitfalls next time.
 
 </div>
 
-<div class="tron-issues" markdown>
-:material-lightbulb-on-outline:{ .tron-issues__icon } **Known issues, quick lookup**
+<div class="wiki-grid" markdown>
 
-[bf16 crash on GB10 (JAX / Blackwell)](known-issues/jax-bf16-gb10.md)
-[FluxVLA vs tron2_openpi checkpoints aren't compatible](known-issues/checkpoint-format-mismatch.md)
-[rospy.init_node() ordering breaks the Bridge](known-issues/ros-bridge-init-order.md)
+<div class="wiki-tile" markdown>
 
-**[See all known issues →](known-issues/index.md)**
+:tron-robot:{ .wiki-tile__icon }
+
+### [Hardware & operation](hardware/index.md)
+
+Meet the robot. Controls, cameras, power, safety and daily operation.
+
 </div>
+
+<div class="wiki-tile" markdown>
+
+:material-code-tags:{ .wiki-tile__icon }
+
+### [Software & learning](software/index.md)
+
+Develop, simulate, record demonstrations, train models and run policies.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:material-flask-outline:{ .wiki-tile__icon }
+
+### [Projects & experiments](projects/index.md)
+
+Vision-to-pointing, the ring task and dated results from the lab.
+
+</div>
+
+<div class="wiki-tile" markdown>
+
+:material-wrench-outline:{ .wiki-tile__icon }
+
+### [Troubleshooting](troubleshooting/index.md)
+
+Find a symptom, understand its cause and use the tested workaround.
+
+</div>
+
+</div>
+
+**New to the robot?** Start with [Getting started](getting-started/index.md).
+**Need an exact detail?** Open [Reference](reference/index.md).
 
 <div class="tron-search" markdown>
-<input type="text" class="tron-search__input" id="tron-search-trigger" placeholder="Search the wiki…" autocomplete="off">
+<input type="text" class="tron-search__input" id="tron-search-trigger" placeholder="Search the knowledge base…" aria-label="Open knowledge base search" autocomplete="off">
 </div>

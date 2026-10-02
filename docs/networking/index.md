@@ -38,3 +38,11 @@ The robot uses networking for the information page, developer computer, SDK comm
 
 - LimX Dynamics, *TRON 2 User Manual*, v0.1, sections 5.3 and 6.
 - LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, sections 1.1–1.3.
+
+
+
+## Measured policy deployment paths
+
+The Spark client connects separately to the image Bridge and robot controller. The policy server is local to the Spark; a policy-server failure is distinct from losing the client-to-robot command stream.
+
+Bridge images use secure WebSocket with the Bridge path. Joint state arrives directly from the controller rather than through the Bridge. Disable Bridge joint-topic alignment for that arrangement. [Architecture](../reference/system-architecture.md) · [Bridge prerequisites](../known-issues/ros-bridge-init-order.md).

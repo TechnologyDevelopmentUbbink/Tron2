@@ -40,3 +40,11 @@ The repository documents ROS-style axes (`x` forward, `y` left, `z` up) unless t
 ## Source
 
 [LimX TRON 2 robot-description repository](https://github.com/limx-tron2/robot-description) and LimX Dynamics, *TRON 2 SDK Development Guide*, v0.5, section 1.3.
+
+
+
+## The image Bridge is a separate integration
+
+The existing bridge_to_ros investigation uses rospy (ROS1), not evidence that ROS2 is installed on the robot. Start the Bridge provider before rospy.init_node, use the secure WebSocket scheme and disable Bridge joint topics when joint state comes directly from the controller. Use the states field from the returned dict.
+
+[Bridge issue and checks](../known-issues/ros-bridge-init-order.md) · [Observation pipeline](../reference/observation-pipeline.md).

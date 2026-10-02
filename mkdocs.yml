@@ -10,6 +10,7 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  font: false
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -73,43 +74,92 @@ extra_javascript:
 
 copyright: Engineering documentation — Technology Development Ubbink
 
+
 nav:
   - Home: index.md
-  - Hardware Specs:
-      - Start Here: getting-started/index.md
+  - Hardware:
+      - Overview: hardware/index.md
+      - Getting Started: getting-started/index.md
       - Safety: getting-started/safety.md
       - Robot Overview: hardware/robot-overview.md
       - Controller & VR: hardware/controller.md
       - Batteries & Charging: hardware/battery-and-charger.md
       - Connections & Indicators: hardware/connections-and-ports.md
-      - Sensors: hardware/sensors.md
-      - Operation: operation/index.md
-      - Startup: operation/startup.md
-      - Shutdown: operation/shutdown.md
-      - Emergency Stop: operation/emergency-stop.md
-  - Software Dev:
-      - SDK Overview: software/index.md
-      - Installation: software/installation.md
-      - Firmware: software/firmware.md
-      - Version Compatibility: software/version-compatibility.md
-      - Networking: networking/index.md
-      - ROS 2 & Models: ros2/index.md
-      - Isaac Sim, Isaac Lab & FluxVLA Training: software/isaac-sim-training.md
-      - C++ API: programming/cpp.md
-      - Python API: programming/python.md
-      - High-level API: programming/api-reference.md
-      - Vision-to-Pointing Roadmap: projects/vision-pointing-roadmap.md
-      - Known Issues:
-          - Overview: known-issues/index.md
-          - "bf16 crash on GB10 (JAX/Blackwell)": known-issues/jax-bf16-gb10.md
-          - "FluxVLA vs tron2_openpi checkpoints": known-issues/checkpoint-format-mismatch.md
-          - "ROS bridge init order": known-issues/ros-bridge-init-order.md
-  - Troubleshooting: troubleshooting/index.md
+      - Cameras & Sensors: hardware/sensors.md
+      - Operation:
+          - Overview: operation/index.md
+          - Power-on: operation/startup.md
+          - Shutdown: operation/shutdown.md
+          - Emergency Stop: operation/emergency-stop.md
+  - Software:
+      - Overview: software/index.md
+      - Development:
+          - Overview: software/development.md
+          - SDK Overview: software/sdk-overview.md
+          - Installation: software/installation.md
+          - Firmware & Calibration: software/firmware.md
+          - Version Compatibility: software/version-compatibility.md
+          - Networking: networking/index.md
+          - ROS & Bridge: ros2/index.md
+          - C++ API: programming/cpp.md
+          - Python API: programming/python.md
+          - High-level API: programming/api-reference.md
+      - Simulation & FluxVLA:
+          - Overview: simulation/index.md
+          - Models & Isaac Lab: simulation/models-and-isaac-lab.md
+          - FluxVLA: simulation/fluxvla.md
+          - Teleoperation: simulation/teleoperation.md
+      - Imitation Learning:
+          - Overview: learning/index.md
+          - LeRobot Setup: learning/lerobot-setup.md
+          - Demonstrations: learning/demonstrations.md
+          - Dataset Quality: learning/dataset-quality.md
+          - Dataset Viewer: learning/dataset-viewer.md
+          - ACT & SmolVLA: learning/act-and-smolvla.md
+          - Evaluation: learning/evaluation.md
+          - Robot Trials: learning/robot-trials.md
+      - Running Policies:
+          - Overview: deployment/index.md
+          - Start & Stop: deployment/run-a-policy.md
+          - Policy Management: deployment/policy-management.md
+          - Servers: deployment/servers.md
+          - Client & Watchdogs: deployment/client-safety.md
+          - Startup & Rest Route: deployment/startup-and-rest.md
+          - LimX Policies: deployment/limx-policies.md
+  - Projects:
+      - Overview: projects/index.md
+      - Vision-to-Pointing:
+          - Roadmap: projects/vision-pointing-roadmap.md
+          - Robot Import: projects/vision-pointing/1-1-robot-import-initial-scene-setup.md
+          - Robot Inspection: projects/vision-pointing/1-2-robot-inspection-reference-scene.md
+          - Cube Movement: projects/vision-pointing/1-3-cube-movement-python.md
+          - VS Code Integration: projects/vision-pointing/1-4-vscode-integration.md
+      - Ring Task: projects/ring-task.md
+      - Experiments:
+          - Overview: projects/experiments/index.md
+          - "28 Sep — Environment & Practice Data": projects/experiments/2026-09-28-environment.md
+          - "29 Sep — Real Data & Model Comparison": projects/experiments/2026-09-29-real-data.md
+          - "30 Sep — Server, Routes & Fault Tests": projects/experiments/2026-09-30-deployment.md
+          - "1 Oct — Robot Session": projects/experiments/2026-10-01-robot-session.md
+  - Troubleshooting:
+      - First Triage: troubleshooting/index.md
+      - Issue Index: known-issues/index.md
+      - "GB10 / JAX bf16": known-issues/jax-bf16-gb10.md
+      - Checkpoint Formats: known-issues/checkpoint-format-mismatch.md
+      - ROS Bridge Init Order: known-issues/ros-bridge-init-order.md
+      - LeRobot Environment: known-issues/lerobot-environment.md
+      - Dataset & Normalisation: known-issues/dataset-recording.md
+      - Viewer & Camera Mapping: known-issues/viewer-and-cameras.md
+      - "movej Accepted Without Motion": known-issues/movej-no-motion.md
+      - Camera Startup Timeout: known-issues/camera-startup-timeout.md
   - Reference:
+      - Overview: reference/index.md
       - Specifications: reference/specifications.md
-      - System Architecture: reference/system-architecture.md
+      - Architecture: reference/system-architecture.md
+      - Joint Layouts: reference/joint-layouts.md
+      - Observations & Playback: reference/observation-pipeline.md
       - Terminology: reference/terminology.md
-      - Command Reference: reference/command-reference.md
-      - Document Sources: reference/document-sources.md
+      - Command Glossary: reference/command-reference.md
+      - Sources: reference/document-sources.md
       - Revision History: reference/revision-history.md
-  - Contributing: contributing/index.md
+      - Contributing: contributing/index.md

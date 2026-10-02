@@ -1,5 +1,7 @@
 # Shutdown
 
+For an active policy client, complete its [controlled stop and rest route](../deployment/run-a-policy.md#normal-stop) before the normal robot power-down sequence. Closing the client window can interrupt its command stream.
+
 ## Normal sequence
 
 1. Stop commanded motion and clear nearby people.

@@ -1,23 +1,6 @@
 /* Small wiki-style refinements; Material remains responsible for layout. */
 .md-grid { max-width: 82rem; }
 
-.tron-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: .8rem;
-  margin: 1.25rem 0 1.75rem;
-}
-
-.tron-card {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: .25rem;
-  padding: .25rem .9rem .6rem;
-  background: var(--md-default-bg-color);
-}
-
-.tron-card h3 { margin: .55rem 0 .2rem; }
-.tron-card p { margin: .25rem 0; }
-
 .md-typeset table:not([class]) { font-size: .78rem; }
 .md-typeset table:not([class]) th { white-space: normal; }
 .md-typeset table:not([class]) tbody tr:nth-child(even) {
@@ -33,150 +16,14 @@
 .wiki-facts table { width: 100%; }
 
 @media screen and (max-width: 50rem) {
-  .tron-card-grid--compact { grid-template-columns: 1fr; }
   .wiki-facts { float: none; width: 100%; margin: 0 0 1rem; }
 }
 
-/* ================================================================
-   Custom "graphite" palette — dark mode is a warm charcoal,
-   never pure black. Light mode stays close to Material default.
-   ================================================================ */
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: #1a1c22;
   --md-default-fg-color: #eceef2;
   --md-primary-fg-color: #1a1c22;
   --md-primary-bg-color: #eceef2;
-}
-
-/* ---- Hero header ---- */
-.tron-hero {
-  text-align: center;
-  margin: 1.5rem 0 2rem;
-}
-
-.tron-hero__eyebrow {
-  font-size: .8rem;
-  color: var(--md-default-fg-color);
-  margin: 0 0 .25rem;
-}
-
-.tron-hero h1 {
-  margin: 0;
-  font-size: 2.1rem;
-}
-
-.tron-hero__subtitle {
-  margin: .4rem 0 0;
-  color: var(--md-default-fg-color--light);
-  font-size: .95rem;
-}
-
-/* ---- Homepage doors: Hardware Specs / Software Dev ---- */
-.tron-doors {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 1.75rem 0;
-}
-
-.tron-door {
-  position: relative;
-  padding: 1.5rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  transition: transform .15s ease, background .15s ease;
-}
-
-[data-md-color-scheme="default"] .tron-door {
-  background: rgba(0, 0, 0, 0.035);
-}
-
-.tron-door:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-[data-md-color-scheme="default"] .tron-door:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
-
-.tron-door__icon {
-  font-size: 1.6rem;
-  color: var(--md-accent-fg-color);
-}
-
-.tron-door h3 {
-  margin: .5rem 0 .4rem;
-  font-size: 1.25rem;
-}
-
-.tron-door h3 a {
-  color: var(--md-default-fg-color) !important;
-  text-decoration: none !important;
-}
-
-/* Stretched link: the whole card becomes clickable, not just the title */
-.tron-door h3 a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.tron-door p {
-  font-size: .9rem;
-  color: var(--md-default-fg-color--light);
-  margin: 0;
-  line-height: 1.5;
-}
-
-@media screen and (max-width: 600px) {
-  .tron-doors {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---- Known issues: plain list, no card/box around it ---- */
-.tron-issues {
-  margin: 1.75rem 0;
-}
-
-.tron-issues > p:first-child {
-  margin: 0 0 .6rem;
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-}
-
-.tron-issues__icon {
-  color: var(--md-accent-fg-color);
-}
-
-.tron-issues > p > a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .45rem 0;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  text-decoration: none !important;
-  color: var(--md-default-fg-color) !important;
-  font-size: .9rem;
-}
-
-.tron-issues > p > a::after {
-  content: "\2192";
-  color: var(--md-default-fg-color--light);
-  margin-left: 1rem;
-  flex-shrink: 0;
-}
-
-.tron-issues > p > a:hover {
-  color: var(--md-accent-fg-color) !important;
-}
-
-.tron-issues p:last-child a {
-  border-bottom: none;
-  font-weight: 600;
-  padding: .25rem 0 0;
 }
 
 /* ---- Fake search box that opens Material's real search overlay ---- */
@@ -214,3 +61,42 @@
 [data-md-color-scheme="default"] .tron-search__input:focus {
   background: rgba(0, 0, 0, 0.06);
 }
+
+
+
+/* Task-based wiki entrances. Shared by the home, hardware and software hubs. */
+.wiki-header { margin: 1.3rem 0 1.8rem; max-width: 46rem; }
+.wiki-eyebrow { margin: 0 0 .5rem; font-size: .64rem; font-weight: 700;
+  letter-spacing: .12em; color: var(--md-accent-fg-color); }
+.wiki-header h1 { margin: .15rem 0 .7rem; font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 650; line-height: 1.12; letter-spacing: -.025em; }
+.wiki-header > p:last-child { font-size: .95rem; color: var(--md-default-fg-color--light); }
+.wiki-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem; margin: 1.5rem 0 2.2rem; }
+.wiki-tile { position: relative; display: flex; flex-direction: column;
+  min-height: 10rem; padding: 1.25rem 1.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest); border-radius: 16px;
+  background: color-mix(in srgb, var(--md-default-fg-color) 3%, var(--md-default-bg-color));
+  transition: border-color .15s ease, background .15s ease; }
+.wiki-tile:hover, .wiki-tile:focus-within {
+  border-color: var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 6%, var(--md-default-bg-color)); }
+.wiki-tile__icon { color: var(--md-accent-fg-color); font-size: 2.2rem; }
+.wiki-tile__icon svg { width: 2.2rem; height: 2.2rem; }
+.wiki-tile > p:first-child { margin: 0 0 .5rem; }
+.wiki-tile h3 { margin: .35rem 2rem .5rem 0; font-size: 1.12rem; font-weight: 650; }
+.wiki-tile h3 a { color: var(--md-default-fg-color); text-decoration: none; }
+.wiki-tile h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+.wiki-tile h3 a:focus-visible { outline: none; }
+.wiki-tile:has(a:focus-visible) { outline: 3px solid var(--md-accent-fg-color); outline-offset: 3px; }
+.wiki-tile::after { content: "↗"; position: absolute; top: 1.5rem; right: 1.45rem;
+  color: var(--md-default-fg-color--light); font-size: 1.1rem; pointer-events: none; }
+.wiki-tile > p:last-child { margin: 0; max-width: 31rem; color: var(--md-default-fg-color--light);
+  font-size: .79rem; line-height: 1.6; }
+.md-typeset h2 { margin-top: 1.8em; }
+@media (max-width: 640px) {
+  .wiki-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .wiki-tile { min-height: 8.8rem; padding: 1rem 1.15rem; }
+  .wiki-header { margin-top: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) { .wiki-tile { transition: none; } }

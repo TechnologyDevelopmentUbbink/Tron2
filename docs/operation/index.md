@@ -5,6 +5,7 @@
 | Prepare and power on | [Startup](startup.md) | Official-source summary; Ubbink verification pending |
 | Handheld/VR control | [Controller & VR](../hardware/controller.md) | Official-source mappings; configuration dependent |
 | Normal power down | [Shutdown](shutdown.md) | Official-source summary; Ubbink verification pending |
+| Run and stop a learned policy | [Policy session](../deployment/run-a-policy.md) | Own-model session recorded 1 October; see scoped test evidence |
 | Stop unsafe motion | [Emergency stop](emergency-stop.md) | Read before operation |
 
 !!! warning "Check the active mode"

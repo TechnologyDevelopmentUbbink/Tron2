@@ -82,11 +82,15 @@ The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. 
 
     The manual says zero calibration is required only after a controller upgrade or severe impact causing zero-position loss or drift. It is not a normal startup step.
 
+## Local motor-release observation
+
+The September route tests found that normal software could bring the arms to rest but could not release the motors. The manual action was L1+X. This specific observation does not verify every button mapping in the tables above. [Client safety](../deployment/client-safety.md#motor-release-remains-manual).
+
 ## Ubbink verification record
 
 | Item | Value |
 | --- | --- |
-| Robot configuration tested | Not tested |
+| Robot configuration tested | Specific dual-arm route/release observations recorded; complete controls table not verified |
 | Robot firmware | Not recorded |
 | Handheld controller version | Not recorded |
 | VR headset/app version | Not recorded |

@@ -1,13 +1,16 @@
-# Known Issues
+# Known issues
 
-Short, standalone pages for specific bugs and fixes found during TRON 2 development — pulled out of the dated build logs so they're searchable on their own, without reading the whole session.
+Look up a symptom here; use [First triage](../troubleshooting/index.md) when the category is unclear.
 
-Each page follows the same shape: **Symptom → Cause → Fix**, plus a link back to the build-log session it came from.
-
-| Issue | Area | Source log |
+| Issue | Context | Evidence / status |
 | --- | --- | --- |
-| [bf16 crash on GB10 (JAX / Blackwell)](jax-bf16-gb10.md) | DGX Spark, JAX/OpenPI | Aug 28 |
-| [FluxVLA vs tron2_openpi checkpoints aren't compatible](checkpoint-format-mismatch.md) | Deployment | Aug 28 |
-| [rospy.init_node() ordering breaks the Bridge](ros-bridge-init-order.md) | ROS bridge | Aug 28 |
+| [JAX bf16 on GB10](jax-bf16-gb10.md) | OpenPI compilation | August workaround; upstream status is a dated snapshot |
+| [Checkpoint formats](checkpoint-format-mismatch.md) | FluxVLA vs OpenPI | Parameter naming/runtime mismatch; August investigation |
+| [Bridge init order](ros-bridge-init-order.md) | ROS1/Bridge integration | Ordering, URL scheme and joint-topic alignment |
+| [LeRobot environment](lerobot-environment.md) | ARM packages and decoders | Working environment measured September |
+| [Recording/statistics](dataset-recording.md) | Dataset quality | Clean-copy mitigation; recorder cause unresolved |
+| [Viewer/cameras](viewer-and-cameras.md) | Rerun and model input | Connection and mapping fixes |
+| [movej without motion](movej-no-motion.md) | Active developer mode | Physical route used servoj instead |
+| [Camera first-frame timeout](camera-startup-timeout.md) | Live observation startup | Recovery observed; root cause unresolved |
 
-More to come — the Aug 25/26 install and tokenizer logs have several more worth extracting (protobuf version conflict, tokenizer `vocab_size=5` bug, LeRobot v3 vs v2.1, DGX UEFI boot order, compliance switch/preset independence). Ask to have the next batch drafted.
+Use the current topic pages for procedures. A historical workaround is not proof that an upstream issue remains open today.

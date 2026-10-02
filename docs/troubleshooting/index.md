@@ -2,6 +2,8 @@
 
 Start with observation and evidence. Do not repeatedly power-cycle or re-enable motors when the cause is unknown.
 
+[Browse the issue index](../known-issues/index.md) for known symptoms and workarounds. If a policy is active, use its [controlled stop](../deployment/run-a-policy.md) when conditions permit; an emergency stop remains a separate action.
+
 ## First triage
 
 1. Stop motion and make the area safe.

@@ -6,7 +6,7 @@ title: Vision-to-Pointing Development Roadmap
 
 Source status: internal project plan, partly Unverified until each phase is executed. Not yet Ubbink-verified end to end.
 
-This page is a living build log, not a fixed spec. Each checklist item gets updated in place as work happens: software/version used, what worked, what didn't, dead ends. If the project stalls at any phase, this page should still stand on its own as a usable record for whoever picks it up next (including future-you).
+This page tracks the project stages. Completed setup work is recorded in the linked experiment reports; an unchecked item is a project goal, not evidence that every related robot capability remains untested.
 
 Primary first use case: place a coloured cube in front of the robot and make one arm point toward it without touching it.
 
@@ -22,13 +22,13 @@ Camera frame (RGB+D) → Target selection → 3D position (camera frame)
 
 ### Official SDK facts used in this guide
 
-- The TRON 2 SDK talks to the simulator at `127.0.0.1` and the real robot at `10.192.1.2` — different addresses, don't mix them up.
+- The TRON 2 SDK talks to the simulator at `127.0.0.1` and the real robot at `<robot-controller>` — different addresses, don't mix them up.
 - The SDK gives you the robot's joint angle (`q`), joint speed (`dq`), and estimated torque (`tau`).
 - The EDU compute module is where your own code runs and talks to the robot controller over the robot's network.
 
 ### Robot model for Isaac Sim
 
-See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../software/isaac-sim-training.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo.
+See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../simulation/models-and-isaac-lab.md#robot-model-urdfusd-for-isaac-sim) for the `limxdynamics/robot-description` repo.
 
 ---
 
@@ -57,7 +57,7 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Open the scene — it should load with no missing-file errors.
 - [x] Check the robot has all its expected joints/links, and that the **Articulation Root** is set. (If this is wrong, the robot will look fine but physics silently won't work)
 
-[Phase 1.1 – Robot Import & Initial Scene Setup](../assets/Results_Project_Cube/1-1-robot-import-initial-scene-setup.md)
+[Phase 1.1 – Robot Import & Initial Scene Setup](vision-pointing/1-1-robot-import-initial-scene-setup.md)
 
 #### 1.2 — Confirm you know which joint is which
 
@@ -65,14 +65,14 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Move the cube by typing in numbers (not just dragging it) — confirm you can do this.
 - [x] Pick one clear point on the arm that counts as "where it's pointing from" (e.g. gripper centre) and write down why you picked it.
 
-[Phase 1.2 – Robot reference Cube](../assets/Results_Project_Cube/1-2-robot-inspection-reference-scene.md)
+[Phase 1.2 – Robot reference Cube](vision-pointing/1-2-robot-inspection-reference-scene.md)
 
 #### 1.3 — Read the cube's position and move it
 
 - [x] Write a small script that reads the cube's `[x,y,z]` and prints it. Nothing moves yet.
 - [x] Move the cube around via a script and confirm the printed numbers actually change to match.
 
-[Phase 1.3 – Cube movement](../assets/Results_Project_Cube/1-3-cube-movement-python.md)
+[Phase 1.3 – Cube movement](vision-pointing/1-3-cube-movement-python.md)
 
 #### 1.4 — VS Code & Extension Integration
 
@@ -81,7 +81,7 @@ See: [Isaac Sim, Isaac Lab & FluxVLA Training → Robot model (URDF/USD)](../sof
 - [x] Generate the initial Isaac Sim extension project.
 - [x] Configure the extension to automatically start and stop with the simulation.
 
-[Phase 1.4 – Extention intergration](../assets/Results_Project_Cube/1-4-vscode-integration.md)
+[Phase 1.4 – Extension integration](vision-pointing/1-4-vscode-integration.md)
 
 
 #### 1.5 — Work out where the arm should point to

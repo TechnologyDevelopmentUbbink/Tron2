@@ -25,3 +25,11 @@ Sensor availability depends on configuration and on whether the source describes
 
 - LimX Dynamics, *TRON 2 User Manual*, v0.1, section 1.2.
 - [LimX TRON 2 robot-description repository](https://github.com/limx-tron2/robot-description), variant and sensor overview.
+
+
+
+## Streams observed in the learning/deployment work
+
+The first real dataset contained five camera streams. The measured deployment selects one overview and two wrist streams (cam_high, cam_left_wrist, cam_right_wrist). The supplied pipeline diagram records 640 × 480 for the overview and 848 × 480 for the wrists.
+
+These stream observations do not complete the physical sensor model/driver inventory. [Observation pipeline](../reference/observation-pipeline.md) and [dataset camera mapping](../learning/act-and-smolvla.md#cameras-must-match-deployment).
