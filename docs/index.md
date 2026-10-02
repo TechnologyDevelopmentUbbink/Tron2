@@ -57,9 +57,6 @@ Find a symptom, understand its cause and use the tested workaround.
 
 </div>
 
-**New to the robot?** Start with [Getting started](getting-started/index.md).
-**Need an exact detail?** Open [Reference](reference/index.md).
-
 <div class="tron-search" markdown>
 <input type="text" class="tron-search__input" id="tron-search-trigger" placeholder="Search the knowledge base…" aria-label="Open knowledge base search" autocomplete="off">
 </div>

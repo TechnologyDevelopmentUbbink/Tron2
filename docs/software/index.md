@@ -77,4 +77,3 @@ Joint layouts, observations, tested versions and useful commands.
 
 </div>
 
-This wiki records stable concepts, operating principles and lessons. The working robot code changes frequently and is maintained locally; this repository does not distribute the policy clients, servers or launchers. Local utility names are explained so operators recognise them, rather than presented as an installable package.
