@@ -49,7 +49,7 @@ PICO controls, preparing a session and starting a recording.
 
 :tron-safety:{ .wiki-tile__icon }
 
-### [Safety & getting started](../getting-started/index.md)
+### [Safety](../getting-started/safety.md)
 
 Preparation, operating area and the stop paths you need to know.
 

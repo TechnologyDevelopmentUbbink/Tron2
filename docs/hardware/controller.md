@@ -4,9 +4,17 @@ This page maps the official handheld and VR controls for the configurations cove
 
 !!! danger "Read before operating"
 
-    These mappings are **official-source summaries, not Ubbink-verified instructions**. Confirm the robot configuration, clear the operating area, keep the physical emergency stop accessible, and start at low risk. Several emergency commands cause the robot to drop.
+    These mappings are **official-source summaries, not Ubbink-verified instructions**. Confirm the robot configuration, clear the operating area, keep the physical emergency stop accessible, and start at low risk. Several emergency commands cause the robot to drop. Read [Safety](../getting-started/safety.md) and the [emergency-stop procedure](../operation/emergency-stop.md).
 
 ## Handheld controller
+
+<figure class="controller-layout" markdown>
+
+![Handheld controller layout: shoulder buttons L1/L2 and R1/R2, Select, Start, D-pad, face buttons Y/B/X/A, joystick buttons L3/R3, and Home.](../assets/images/handheld-controller-layout.png)
+
+<figcaption>Handheld controller button layout. The drawing uses A/B/X/Y labels; the command tables retain the manual’s symbol labels. Confirm the corresponding physical buttons before using a command.</figcaption>
+
+</figure>
 
 The controller has a D-pad, two joysticks with push buttons, face buttons (`△`, `○`, `×`, `□`), shoulder buttons (`L1`, `L2`, `R1`, `R2`), a display, and a power button. The display reports radio signal, controller battery, robot state information, and current mode.
 
@@ -39,6 +47,14 @@ The controller has a D-pad, two joysticks with push buttons, face buttons (`△`
     Do not use a biped/wheeled-biped command table on a dual-arm configuration, or vice versa. The same combination can have a different prerequisite or outcome.
 
 ## VR teleoperation
+
+<figure class="controller-layout controller-layout--vr" markdown>
+
+![VR controller layout: left Menu, Y and X buttons; right Capture/Record, B and A buttons; thumbsticks, Home buttons, grip buttons, and trigger.](../assets/images/vr-controller-layout.png)
+
+<figcaption>VR controller layout with front and side views.</figcaption>
+
+</figure>
 
 The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. The two VR controllers provide joysticks, grip buttons, triggers, face buttons, and home/menu controls.
 

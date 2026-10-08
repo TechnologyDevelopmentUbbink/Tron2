@@ -4,18 +4,13 @@
 
     Keep people outside the operating area, keep the physical emergency stop accessible, remove loose objects, and never stand in fall, crush, pinch, wheel, arm, or end-effector zones.
 
-## Official manual requirements summarized
+## Before operation
 
-- Read and understand the official document before use.
-- The product is not a toy and the cited manual does not recommend use by people under 18.
-- Do not use the robot in crowded areas; the cited manual specifies keeping people at least 1 m away during use.
-- Do not operate in extreme-temperature or corrosive environments.
-- Use only for lawful, legitimate purposes and comply with local regulations and export controls.
-- Inspect for wear, battery aging, damage, and abnormal behavior before use.
-
-## Ubbink controls still required
-
-The public manual does not replace a local risk assessment, training record, task-specific work instruction, suitable floor/fixture requirements, battery/fire response, or authorization rules. Those items remain **not verified** in this wiki.
+1. Read this Safety page and the current [official manual](https://limx.cn/en/documents/852949782845591552).
+2. Make sure the operating area is clear of people, obstacles, and loose objects.
+3. Check the [battery and charger](../hardware/battery-and-charger.md) and connectors for damage or abnormal condition.
+4. Learn the [controller and emergency-stop controls](../hardware/controller.md) before enabling motion.
+5. Make sure the external E-stop button is connected and within reach.
 
 ## Stop versus emergency stop
 

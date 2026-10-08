@@ -16,10 +16,6 @@
 | Published charge time | 20–80%: 30 min; 20–100%: 54 min | Manual reference value, not Ubbink verified |
 | Battery swap support | Yes | Both editions in the manual |
 
-!!! info "Official source — not yet Ubbink verified"
-
-    Values above are paraphrased from the TRON 2 User Manual v0.1, section 1.2. Check labels on the actual Ubbink hardware before relying on them.
-
 ## Before charging
 
 1. Stop operation and follow the approved shutdown sequence.
@@ -31,10 +27,6 @@
 ## Remote controller
 
 The manual describes charging the handheld controller from a 5 V / 1 A supply. A steady green controller indicator means charging is active or complete; no light means it is not charging. This indication does not distinguish active charging from completion.
-
-## Mobile chassis
-
-The mobile dual-arm configuration has a separate chassis battery and charger. Treat its values and procedure separately from the main TRON 2 battery.
 
 ## Source
 

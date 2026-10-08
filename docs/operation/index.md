@@ -1,5 +1,7 @@
 # Operation
 
+Start with [Safety](../getting-started/safety.md) and identify the [robot configuration and model](../hardware/robot-overview.md). Before movement, follow [Startup](startup.md) and confirm the robot state. Keep the [emergency-stop procedure](emergency-stop.md) within reach.
+
 | Task | Page | Verification |
 | --- | --- | --- |
 | Prepare and power on | [Startup](startup.md) | Official-source summary; Ubbink verification pending |

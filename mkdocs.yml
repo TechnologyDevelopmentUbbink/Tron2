@@ -82,7 +82,6 @@ nav:
   - Home: index.md
   - Hardware:
       - Overview: hardware/index.md
-      - Getting Started: getting-started/index.md
       - Safety: getting-started/safety.md
       - Robot Overview: hardware/robot-overview.md
       - Controller & VR: hardware/controller.md

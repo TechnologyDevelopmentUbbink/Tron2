@@ -1,18 +1,5 @@
 # Connections, ports, and indicators
 
-!!! info "Official source — hardware match pending"
-
-    Port labels below come from the TRON 2 User Manual v0.1. Verify them against the physical Ubbink robot before connecting equipment.
-
-## Rear expansion panel
-
-| Interface | Published description | Handling note |
-| --- | --- | --- |
-| 24 V input | Main power input | Use only the intended power source and connector |
-| 12 V output | Stable DC accessory output; manual lists a 5 A maximum | Confirm accessory load and polarity before connection |
-| USB 3.0 | Three ports shown in the manual | Check power and bandwidth requirements |
-| Ethernet | Three Gigabit Ethernet ports shown | Network settings are configuration-specific |
-
 ## Body status light
 
 | Pattern | Meaning in the manual |
@@ -25,12 +12,15 @@
 | Blue, steady | Remote-control or VR teleoperation mode, depending on configuration |
 | Sky blue, steady | High-level developer mode |
 | Green, steady | Low-level developer mode |
-| Purple, dynamic | Wheeled-biped stair mode |
-| Yellow, breathing | Off-ground detection state |
 
-!!! warning "Do not diagnose by color alone"
+## Rear expansion panel
 
-    Confirm the active mode on the controller/application and inspect diagnostic data. Similar colors can represent different states.
+| Interface | Published description | Handling note |
+| --- | --- | --- |
+| 24 V input | Main power input | Use only the intended power source and connector |
+| 12 V output | DC accessory output, 5 A max | Confirm accessory load and polarity before connection |
+| USB 3.0 | Three ports shown in the manual | Check power and bandwidth requirements |
+| Ethernet | Three Gigabit Ethernet ports shown | Network settings are configuration-specific |
 
 ## Source
 
