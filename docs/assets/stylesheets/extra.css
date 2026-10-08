@@ -131,4 +131,3 @@
   background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
   box-shadow: inset .2rem 0 var(--md-accent-fg-color);
 }
-
