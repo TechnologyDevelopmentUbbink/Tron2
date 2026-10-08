@@ -101,14 +101,14 @@
 }
 @media (prefers-reduced-motion: reduce) { .wiki-tile { transition: none; } }
 
-/* Keep transparent controller diagrams readable in both color schemes. */
+/* Preserve controller transparency and contrast in both color schemes. */
 .md-typeset .controller-layout {
   margin: 1rem 0 1.5rem;
   padding: 1rem;
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: .5rem;
-  background: #fff;
-  color: #333;
+  background: transparent;
+  color: var(--md-default-fg-color);
   text-align: center;
 }
 .md-typeset .controller-layout img {
@@ -122,7 +122,7 @@
 .md-typeset .controller-layout figcaption {
   max-width: 42rem;
   margin: .75rem auto 0;
-  color: #555;
+  color: var(--md-default-fg-color--light);
   font-size: .7rem;
 }
 
@@ -131,3 +131,5 @@
   background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
   box-shadow: inset .2rem 0 var(--md-accent-fg-color);
 }
+
+[data-md-color-scheme="slate"] .controller-layout img { filter: invert(1); }

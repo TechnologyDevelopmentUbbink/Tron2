@@ -10,7 +10,7 @@ This page maps the official handheld and VR controls for the configurations cove
 
 <figure class="controller-layout" markdown>
 
-![Handheld controller layout: shoulder buttons L1/L2 and R1/R2, Select, Start, D-pad, face buttons triangle/circle/square/cross, joystick buttons L3/R3, and Home.](../assets/images/handheld-controller-layout.png)
+![Handheld controller layout: shoulder buttons L1/L2 and R1/R2, Select, Start, D-pad, face buttons triangle/circle/square/cross, joystick buttons L3/R3, and Home.](../assets/images/handheld-controller-transparent.png)
 
 
 </figure>
@@ -32,7 +32,7 @@ The controller has a D-pad, two joysticks with push buttons, face buttons (`△`
 
 <figure class="controller-layout controller-layout--vr" markdown>
 
-![VR controller layout: left Menu, Y and X buttons; right Capture/Record, B and A buttons; thumbsticks, Home buttons, grip buttons, and trigger.](../assets/images/vr-controller-layout.png)
+![VR controller layout: left Menu, Y and X buttons; right Capture/Record, B and A buttons; thumbsticks, Home buttons, grip buttons, and trigger.](../assets/images/vr-controller-transparent.png)
 
 <figcaption>VR controller layout with front and side views.</figcaption>
 
