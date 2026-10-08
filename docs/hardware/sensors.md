@@ -1,4 +1,4 @@
-# Sensors
+# Cameras and sensors
 
 Sensor availability depends on configuration and on whether the source describes physical hardware or only model geometry.
 
@@ -14,12 +14,6 @@ Sensor availability depends on configuration and on whether the source describes
 !!! warning "Model is not proof of installed hardware"
 
     A URDF link or mesh does not prove that a sensor is installed, powered, calibrated, or supported by a driver on the Ubbink robot.
-
-## Ubbink inventory
-
-| Location | Device/model | Serial recorded elsewhere | Driver/version | Verified |
-| --- | --- | --- | --- | --- |
-| Not recorded | Not recorded | No | Not recorded | No |
 
 ## Sources
 
