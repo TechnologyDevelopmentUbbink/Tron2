@@ -26,7 +26,7 @@
 
 ## Remote controller
 
-The manual describes charging the handheld controller from a 5 V / 1 A supply. A steady green controller indicator means charging is active or complete; no light means it is not charging. This indication does not distinguish active charging from completion.
+The handheld controller is charged from a **5 V / 1 A supply**. A steady green controller indicator means charging is active or complete; no light means it is not charging. This indication does not distinguish active charging from completion.
 
 ## Source
 

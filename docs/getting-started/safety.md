@@ -10,7 +10,7 @@
 2. Make sure the operating area is clear of people, obstacles, and loose objects.
 3. Check the [battery and charger](../hardware/battery-and-charger.md) and connectors for damage or abnormal condition.
 4. Learn the [controller and emergency-stop controls](../hardware/controller.md) before enabling motion.
-5. Make sure the external E-stop button is connected and within reach.
+5. Make sure the external [emergency stop](../operation/emergency-stop.md) button is connected and within reach.
 
 ## Stop versus emergency stop
 

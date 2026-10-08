@@ -15,18 +15,18 @@
 
 The TRON 2 is described by LimX as a modular research platform. The official material separates an EDU edition from a standard edition and shows multiple physical configurations. Never assume a procedure or specification applies to every configuration.
 
-!!! info "Version dependent"
-
-    Identify the installed modules and the robot-model identifier before selecting software, model files, limits, or controller mappings.
-
 ## Configuration families
+
+<div class="configuration-families" markdown>
 
 | Family | What the source describes | Main wiki topics |
 | --- | --- | --- |
-| **Dual-arm — Ubbink configuration** | Two seven-axis arms; optional grippers or dexterous hands; VR teleoperation in the EDU material | [Controller & VR](controller.md), [SDK](../software/index.md) |
+| **Dual-arm — Ubbink robot (`DACH_TRON2A`)** | Two seven-axis arms; optional grippers or dexterous hands; VR teleoperation in the EDU material | [Controller & VR](controller.md), [SDK](../software/index.md) |
 | Bipedal | Two five-axis legs and handheld remote operation | [Controller](controller.md), [Operation](../operation/index.md) |
 | Wheeled-biped | Leg configuration with wheels and a dedicated stair/flat-ground mode | [Controller](controller.md), [Operation](../operation/index.md) |
 | Mobile dual-arm | Dual-arm platform combined with a mobile chassis and lift | VR/mobile-chassis controls are configuration-specific |
+
+</div>
 
 ## Public robot-description models
 
@@ -35,20 +35,6 @@ The official public repository currently organizes assets by variant folder:
 `DA_TRON2A`, `DACH_TRON2A`, `WF_TRON2A`, `SF_TRON2A`, `WFYG_TRON2A`, and `SFYG_TRON2A`.
 
 Each variant can contain `urdf/`, `xacro/`, `xml/`, `meshes/`, and, for some variants, `usd/`. The repository documents a floating base, ROS-style axes unless an integration states otherwise, and variant-dependent sensor geometry.
-
-## Identify the Ubbink robot
-
-The Ubbink robot is the **dual-arm configuration**. Its model is **`DACH_TRON2A`**. Select this variant when choosing robot-description assets.
-
-Record the remaining details as they become available:
-
-| Item | Ubbink value |
-| --- | --- |
-| Robot model identifier | `DACH_TRON2A` |
-| Serial-number evidence location | Not recorded; do not publish the serial number |
-| Installed configuration/modules | Dual-arm; detailed module inventory not recorded |
-| Hardware revision | Not recorded |
-| Firmware/software versions | Not recorded |
 
 ## Sources
 

@@ -125,3 +125,9 @@
   color: #555;
   font-size: .7rem;
 }
+
+/* Highlight the installed configuration in the compact family table. */
+.md-typeset .configuration-families tbody tr:first-child td:first-child {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 15%, var(--md-default-bg-color));
+  box-shadow: inset .2rem 0 var(--md-accent-fg-color);
+}

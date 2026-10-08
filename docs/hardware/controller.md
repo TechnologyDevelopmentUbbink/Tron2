@@ -10,9 +10,8 @@ This page maps the official handheld and VR controls for the configurations cove
 
 <figure class="controller-layout" markdown>
 
-![Handheld controller layout: shoulder buttons L1/L2 and R1/R2, Select, Start, D-pad, face buttons Y/B/X/A, joystick buttons L3/R3, and Home.](../assets/images/handheld-controller-layout.png)
+![Handheld controller layout: shoulder buttons L1/L2 and R1/R2, Select, Start, D-pad, face buttons triangle/circle/square/cross, joystick buttons L3/R3, and Home.](../assets/images/handheld-controller-layout.png)
 
-<figcaption>Handheld controller button layout. The drawing uses A/B/X/Y labels; the command tables retain the manual’s symbol labels. Confirm the corresponding physical buttons before using a command.</figcaption>
 
 </figure>
 
@@ -22,29 +21,12 @@ The controller has a D-pad, two joysticks with push buttons, face buttons (`△`
 
 | Purpose | Input | Required state | Important behavior |
 | --- | --- | --- | --- |
-| Change mode | `R1` + right face button | Idle | Dual-arm cycles VR teleoperation / developer mode; leg configurations cycle remote-control / developer mode |
-| Return action | `L1` + `×` | Remote-control or high-level developer mode | Dual-arm lowers/returns arms; leg configurations squat/fold; then enters idle |
+| Change mode | `R1` + right face button | Idle | Cycles VR teleoperation / developer mode |
+| Return action | `L1` + `×` | Remote-control or high-level developer mode | Lowers/returns arms, then enters idle |
 | Enter idle immediately | `L1` + `□` | Global | Skips return action; joints enter damping and the robot can drop. Emergency use only |
 | Emergency stop | Push both joystick buttons | Global | Motor drives are cut immediately; the robot can drop |
-| Release controller e-stop | Push right joystick button | E-stop state | Motors are re-enabled and the robot enters damping state |
+| Release controller e-stop | Push right joystick button | E-stop state | Manual release enters damping state; Ubbink recovery requires a [full power cycle](../operation/emergency-stop.md#after-an-e-stop) |
 | Zero calibration | `L1` + `R1` | Idle | Only after controller upgrade or confirmed zero-position loss/drift; follow the full manual procedure |
-
-### Bipedal and wheeled-biped commands
-
-| Purpose | Input | Required state |
-| --- | --- | --- |
-| Enter ready state | `L1` + `○` | Idle or standing |
-| Stand in place | `L1` + `△` | Ready |
-| Move forward/back | Left joystick up/down | Standing |
-| Move left/right | Left joystick left/right | Standing; biped only |
-| Turn in place | Right joystick left/right | Standing |
-| Adjust body height | Hold `R1` + D-pad up/down | Standing |
-| Switch flat/stair mode | Hold `□` for 2 s | Standing; wheeled-biped only |
-| Fall recovery | `L2` + `△` | Fall detected |
-
-!!! warning "Configuration-specific controls"
-
-    Do not use a biped/wheeled-biped command table on a dual-arm configuration, or vice versa. The same combination can have a different prerequisite or outcome.
 
 ## VR teleoperation
 
@@ -73,18 +55,6 @@ The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. 
 | Start data collection | Right-controller `B` | Active teleoperation |
 | Stop data collection | Right-controller `B` again | Collection active |
 
-### Mobile chassis and lift (where fitted)
-
-| Purpose | Input |
-| --- | --- |
-| Forward/backward | Left joystick forward/back |
-| Ackermann steering | Right joystick left/right in Ackermann mode |
-| Select diagonal mode | Hold right joystick for 1 s |
-| Select Ackermann mode | Hold left joystick for 1 s |
-| Parking state | Hold left-controller grip and right-controller joystick for 1 s |
-| VR emergency stop | Push both VR joysticks |
-| Raise/lower lift | Hold right grip and move left joystick forward/back |
-
 ## Preparing a VR session
 
 1. Confirm the exact robot configuration and the supported headset/application version.
@@ -101,16 +71,6 @@ The manual identifies the supported EDU teleoperation device as a PICO 4 Ultra. 
 ## Local motor-release observation
 
 The September route tests found that normal software could bring the arms to rest but could not release the motors. The manual action was L1+X. This specific observation does not verify every button mapping in the tables above. [Client safety](../deployment/client-safety.md#motor-release-remains-manual).
-
-## Ubbink verification record
-
-| Item | Value |
-| --- | --- |
-| Robot configuration tested | Specific dual-arm route/release observations recorded; complete controls table not verified |
-| Robot firmware | Not recorded |
-| Handheld controller version | Not recorded |
-| VR headset/app version | Not recorded |
-| Verified by | Not reviewed |
 
 ## Source
 
