@@ -9,7 +9,7 @@
 | **Configurations in the manual** | Dual-arm, bipedal, wheeled-biped |
 | **Development languages** | C++ and Python |
 | **Model assets** | URDF, Xacro, MuJoCo XML, meshes; USD for some variants |
-| **Verification** | Official source; Ubbink hardware match pending |
+| **Ubbink configuration** | Dual-arm; model `DACH_TRON2A` |
 
 </div>
 
@@ -23,7 +23,7 @@ The TRON 2 is described by LimX as a modular research platform. The official mat
 
 | Family | What the source describes | Main wiki topics |
 | --- | --- | --- |
-| Dual-arm | Two seven-axis arms; optional grippers or dexterous hands; VR teleoperation in the EDU material | [Controller & VR](controller.md), [SDK](../software/index.md) |
+| **Dual-arm — Ubbink configuration** | Two seven-axis arms; optional grippers or dexterous hands; VR teleoperation in the EDU material | [Controller & VR](controller.md), [SDK](../software/index.md) |
 | Bipedal | Two five-axis legs and handheld remote operation | [Controller](controller.md), [Operation](../operation/index.md) |
 | Wheeled-biped | Leg configuration with wheels and a dedicated stair/flat-ground mode | [Controller](controller.md), [Operation](../operation/index.md) |
 | Mobile dual-arm | Dual-arm platform combined with a mobile chassis and lift | VR/mobile-chassis controls are configuration-specific |
@@ -38,13 +38,15 @@ Each variant can contain `urdf/`, `xacro/`, `xml/`, `meshes/`, and, for some var
 
 ## Identify the Ubbink robot
 
-Record these items before adding verified procedures:
+The Ubbink robot is the **dual-arm configuration**. Its model is **`DACH_TRON2A`**. Select this variant when choosing robot-description assets.
+
+Record the remaining details as they become available:
 
 | Item | Ubbink value |
 | --- | --- |
-| Robot model identifier | Not recorded |
+| Robot model identifier | `DACH_TRON2A` |
 | Serial-number evidence location | Not recorded; do not publish the serial number |
-| Installed configuration/modules | Not recorded |
+| Installed configuration/modules | Dual-arm; detailed module inventory not recorded |
 | Hardware revision | Not recorded |
 | Firmware/software versions | Not recorded |
 
