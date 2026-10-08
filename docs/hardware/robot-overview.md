@@ -1,18 +1,5 @@
 # Robot overview
 
-<div class="wiki-facts" markdown>
-
-| | |
-| --- | --- |
-| **Platform** | Modular embodied-robotics research platform |
-| **Documented edition** | TRON 2 EDU |
-| **Configurations in the manual** | Dual-arm, bipedal, wheeled-biped |
-| **Development languages** | C++ and Python |
-| **Model assets** | URDF, Xacro, MuJoCo XML, meshes; USD for some variants |
-| **Ubbink configuration** | Dual-arm; model `DACH_TRON2A` |
-
-</div>
-
 The TRON 2 is described by LimX as a modular research platform. The official material separates an EDU edition from a standard edition and shows multiple physical configurations. Never assume a procedure or specification applies to every configuration.
 
 ## Configuration families
